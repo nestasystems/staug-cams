@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-21T16:57:29.612Z",
+  "updated": "2026-06-21T22:00:19.830Z",
   "channel": "UCznXKvxj3U1dEQDprXBmlQA",
   "live": [
     {
@@ -23,24 +23,24 @@
       "title": "Bridge of Lions LIVE - 24/7 - St. Augustine, Florida"
     },
     {
-      "videoId": "ORNGtJ7WB_8",
-      "title": "St. Augustine Lighthouse - LIVE 24/7"
-    },
-    {
       "videoId": "ZTk5cIbXH2g",
       "title": "St. Augustine Florida Skyline | LIVE 24/7 | Hosted by NoProfileBoatLifts"
+    },
+    {
+      "videoId": "ORNGtJ7WB_8",
+      "title": "St. Augustine Lighthouse - LIVE 24/7"
     },
     {
       "videoId": "uLJBad4vSno",
       "title": "Matanzas River, Lighthouse, Bridge of Lions | St. Augustine LIVE 24/7"
     },
     {
-      "videoId": "mYbn_umeenk",
-      "title": "Vilano Pier | Live 24/7 from Beaches at Vilano | St. Augustine"
-    },
-    {
       "videoId": "FLci2xciBb4",
       "title": "A1A Traffic Facing West | The Pub on Anastasia | St. Augustine"
+    },
+    {
+      "videoId": "mYbn_umeenk",
+      "title": "Vilano Pier | Live 24/7 from Beaches at Vilano | St. Augustine"
     }
   ]
 }
