@@ -1,11 +1,7 @@
 {
-  "updated": "2026-06-25T17:34:22.679Z",
+  "updated": "2026-06-25T23:01:47.703Z",
   "channel": "UCznXKvxj3U1dEQDprXBmlQA",
   "live": [
-    {
-      "videoId": "ZTk5cIbXH2g",
-      "title": "St. Augustine Florida Skyline | LIVE 24/7 | Hosted by NoProfileBoatLifts"
-    },
     {
       "videoId": "ZksWoEAhmTU",
       "title": "St. George Street South | St. Augustine LIVE 24/7"
@@ -31,16 +27,20 @@
       "title": "Vilano Pier | Live 24/7 from Beaches at Vilano | St. Augustine"
     },
     {
+      "videoId": "ZTk5cIbXH2g",
+      "title": "St. Augustine Florida Skyline | LIVE 24/7 | Hosted by NoProfileBoatLifts"
+    },
+    {
+      "videoId": "FyGb2TZB344",
+      "title": "Castillo de San Marcos Fort LIVE 24/7 | St. Augustine"
+    },
+    {
       "videoId": "ORNGtJ7WB_8",
       "title": "St. Augustine Lighthouse - LIVE 24/7"
     },
     {
       "videoId": "FLci2xciBb4",
       "title": "A1A Traffic Facing West | The Pub on Anastasia | St. Augustine"
-    },
-    {
-      "videoId": "FyGb2TZB344",
-      "title": "Castillo de San Marcos Fort LIVE 24/7 | St. Augustine"
     }
   ]
 }
