@@ -1,14 +1,10 @@
 {
-  "updated": "2026-06-30T22:03:38.872Z",
+  "updated": "2026-07-01T10:57:47.415Z",
   "channel": "UCznXKvxj3U1dEQDprXBmlQA",
   "live": [
     {
       "videoId": "ZksWoEAhmTU",
       "title": "St. George Street South | St. Augustine LIVE 24/7"
-    },
-    {
-      "videoId": "0lox0s8zNcU",
-      "title": "Bridge of Lions LIVE - 24/7 - St. Augustine, Florida"
     },
     {
       "videoId": "S8afSTXKkdw",
@@ -27,6 +23,10 @@
       "title": "St. Augustine Alligator Farm LIVE 24/7"
     },
     {
+      "videoId": "0lox0s8zNcU",
+      "title": "Bridge of Lions LIVE - 24/7 - St. Augustine, Florida"
+    },
+    {
       "videoId": "ZTk5cIbXH2g",
       "title": "St. Augustine Florida Skyline | LIVE 24/7 | Hosted by NoProfileBoatLifts"
     },
@@ -35,12 +35,12 @@
       "title": "St. Augustine Lighthouse - LIVE 24/7"
     },
     {
-      "videoId": "mYbn_umeenk",
-      "title": "Vilano Pier | Live 24/7 from Beaches at Vilano | St. Augustine"
-    },
-    {
       "videoId": "FLci2xciBb4",
       "title": "A1A Traffic Facing West | The Pub on Anastasia | St. Augustine"
+    },
+    {
+      "videoId": "mYbn_umeenk",
+      "title": "Vilano Pier | Live 24/7 from Beaches at Vilano | St. Augustine"
     }
   ]
 }
