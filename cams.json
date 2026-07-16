@@ -1,19 +1,7 @@
 {
-  "updated": "2026-07-16T13:05:37.712Z",
+  "updated": "2026-07-16T17:49:01.184Z",
   "channel": "UCznXKvxj3U1dEQDprXBmlQA",
   "live": [
-    {
-      "videoId": "ORNGtJ7WB_8",
-      "title": "St. Augustine Lighthouse - LIVE 24/7"
-    },
-    {
-      "videoId": "ZksWoEAhmTU",
-      "title": "St. George Street South | St. Augustine LIVE 24/7"
-    },
-    {
-      "videoId": "FLci2xciBb4",
-      "title": "A1A Traffic Facing West | The Pub on Anastasia | St. Augustine"
-    },
     {
       "videoId": "ZTk5cIbXH2g",
       "title": "St. Augustine Florida Skyline | LIVE 24/7 | Hosted by NoProfileBoatLifts"
@@ -21,6 +9,10 @@
     {
       "videoId": "S8afSTXKkdw",
       "title": "Vilano Boat Ramp LIVE 24/7 | St. Augustine, Florida"
+    },
+    {
+      "videoId": "0lox0s8zNcU",
+      "title": "Bridge of Lions LIVE - 24/7 - St. Augustine, Florida"
     },
     {
       "videoId": "mYbn_umeenk",
@@ -31,16 +23,24 @@
       "title": "Matanzas River, Lighthouse, Bridge of Lions | St. Augustine LIVE 24/7"
     },
     {
-      "videoId": "LHtzZf4T7xw",
-      "title": "St. Augustine Alligator Farm LIVE 24/7"
-    },
-    {
       "videoId": "FyGb2TZB344",
       "title": "Castillo de San Marcos Fort LIVE 24/7 | St. Augustine"
     },
     {
-      "videoId": "0lox0s8zNcU",
-      "title": "Bridge of Lions LIVE - 24/7 - St. Augustine, Florida"
+      "videoId": "ZksWoEAhmTU",
+      "title": "St. George Street South | St. Augustine LIVE 24/7"
+    },
+    {
+      "videoId": "LHtzZf4T7xw",
+      "title": "St. Augustine Alligator Farm LIVE 24/7"
+    },
+    {
+      "videoId": "ORNGtJ7WB_8",
+      "title": "St. Augustine Lighthouse - LIVE 24/7"
+    },
+    {
+      "videoId": "FLci2xciBb4",
+      "title": "A1A Traffic Facing West | The Pub on Anastasia | St. Augustine"
     }
   ]
 }
