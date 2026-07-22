@@ -1,22 +1,18 @@
 {
-  "updated": "2026-07-22T15:37:13.425Z",
+  "updated": "2026-07-22T17:13:46.153Z",
   "channel": "UCznXKvxj3U1dEQDprXBmlQA",
   "live": [
-    {
-      "videoId": "0lox0s8zNcU",
-      "title": "Bridge of Lions LIVE - 24/7 - St. Augustine, Florida"
-    },
     {
       "videoId": "ZksWoEAhmTU",
       "title": "St. George Street South | St. Augustine LIVE 24/7"
     },
     {
-      "videoId": "uLJBad4vSno",
-      "title": "Matanzas River, Lighthouse, Bridge of Lions | St. Augustine LIVE 24/7"
-    },
-    {
       "videoId": "S8afSTXKkdw",
       "title": "Vilano Boat Ramp LIVE 24/7 | St. Augustine, Florida"
+    },
+    {
+      "videoId": "uLJBad4vSno",
+      "title": "Matanzas River, Lighthouse, Bridge of Lions | St. Augustine LIVE 24/7"
     },
     {
       "videoId": "LHtzZf4T7xw",
@@ -31,16 +27,20 @@
       "title": "St. Augustine Florida Skyline | LIVE 24/7 | Hosted by NoProfileBoatLifts"
     },
     {
+      "videoId": "0lox0s8zNcU",
+      "title": "Bridge of Lions LIVE - 24/7 - St. Augustine, Florida"
+    },
+    {
+      "videoId": "ORNGtJ7WB_8",
+      "title": "St. Augustine Lighthouse - LIVE 24/7"
+    },
+    {
       "videoId": "mYbn_umeenk",
       "title": "Vilano Pier | Live 24/7 from Beaches at Vilano | St. Augustine"
     },
     {
       "videoId": "FLci2xciBb4",
       "title": "A1A Traffic Facing West | The Pub on Anastasia | St. Augustine"
-    },
-    {
-      "videoId": "ORNGtJ7WB_8",
-      "title": "St. Augustine Lighthouse - LIVE 24/7"
     }
   ]
 }
