@@ -1,11 +1,7 @@
 {
-  "updated": "2026-08-21T22:19:45.387Z",
+  "updated": "2026-08-21T22:49:23.378Z",
   "channel": "UCznXKvxj3U1dEQDprXBmlQA",
   "live": [
-    {
-      "videoId": "FLci2xciBb4",
-      "title": "A1A Traffic Facing West | The Pub on Anastasia | St. Augustine"
-    },
     {
       "videoId": "ZTk5cIbXH2g",
       "title": "St. Augustine Florida Skyline | LIVE 24/7 | Hosted by NoProfileBoatLifts"
@@ -37,6 +33,10 @@
     {
       "videoId": "mYbn_umeenk",
       "title": "Vilano Pier | Live 24/7 from Beaches at Vilano | St. Augustine"
+    },
+    {
+      "videoId": "FLci2xciBb4",
+      "title": "A1A Traffic Facing West | The Pub on Anastasia | St. Augustine"
     },
     {
       "videoId": "ORNGtJ7WB_8",
