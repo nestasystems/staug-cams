@@ -1,22 +1,10 @@
 {
-  "updated": "2026-08-23T06:34:07.084Z",
+  "updated": "2026-08-23T07:29:45.382Z",
   "channel": "UCznXKvxj3U1dEQDprXBmlQA",
   "live": [
     {
-      "videoId": "FLci2xciBb4",
-      "title": "A1A Traffic Facing West | The Pub on Anastasia | St. Augustine"
-    },
-    {
-      "videoId": "ORNGtJ7WB_8",
-      "title": "St. Augustine Lighthouse - LIVE 24/7"
-    },
-    {
       "videoId": "ZTk5cIbXH2g",
       "title": "St. Augustine Florida Skyline | LIVE 24/7 | Hosted by NoProfileBoatLifts"
-    },
-    {
-      "videoId": "mYbn_umeenk",
-      "title": "Vilano Pier | Live 24/7 from Beaches at Vilano | St. Augustine"
     },
     {
       "videoId": "0lox0s8zNcU",
@@ -37,6 +25,18 @@
     {
       "videoId": "LHtzZf4T7xw",
       "title": "St. Augustine Alligator Farm LIVE 24/7"
+    },
+    {
+      "videoId": "mYbn_umeenk",
+      "title": "Vilano Pier | Live 24/7 from Beaches at Vilano | St. Augustine"
+    },
+    {
+      "videoId": "FLci2xciBb4",
+      "title": "A1A Traffic Facing West | The Pub on Anastasia | St. Augustine"
+    },
+    {
+      "videoId": "ORNGtJ7WB_8",
+      "title": "St. Augustine Lighthouse - LIVE 24/7"
     }
   ]
 }
