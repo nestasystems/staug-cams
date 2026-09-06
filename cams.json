@@ -1,10 +1,10 @@
 {
-  "updated": "2026-09-06T19:22:41.210Z",
+  "updated": "2026-09-06T21:31:24.907Z",
   "channel": "UCznXKvxj3U1dEQDprXBmlQA",
   "live": [
     {
-      "videoId": "ORNGtJ7WB_8",
-      "title": "St. Augustine Lighthouse LIVE 24/7 | Florida"
+      "videoId": "6Qsd_WLk_FM",
+      "title": "St. George Street LIVE 24/7 | St. Augustine, Florida"
     },
     {
       "videoId": "FLci2xciBb4",
@@ -13,10 +13,6 @@
     {
       "videoId": "ZTk5cIbXH2g",
       "title": "St. Augustine Florida Skyline | LIVE 24/7 | Hosted by NoProfileBoatLifts"
-    },
-    {
-      "videoId": "mYbn_umeenk",
-      "title": "Vilano Pier | Live 24/7 from Beaches at Vilano | St. Augustine"
     },
     {
       "videoId": "0lox0s8zNcU",
@@ -39,8 +35,12 @@
       "title": "St. Augustine Alligator Farm LIVE 24/7"
     },
     {
-      "videoId": "6Qsd_WLk_FM",
-      "title": "St. George Street LIVE 24/7 | St. Augustine, Florida"
+      "videoId": "mYbn_umeenk",
+      "title": "Vilano Pier | Live 24/7 from Beaches at Vilano | St. Augustine"
+    },
+    {
+      "videoId": "ORNGtJ7WB_8",
+      "title": "St. Augustine Lighthouse LIVE 24/7 | Florida"
     }
   ]
 }
