@@ -1,15 +1,10 @@
 {
-  "updated": "2026-09-16T20:23:41.020Z",
+  "updated": "2026-09-16T23:13:11.894Z",
   "channel": "UCznXKvxj3U1dEQDprXBmlQA",
   "live": [
     {
-      "videoId": "ORNGtJ7WB_8",
-      "title": "St. Augustine Lighthouse LIVE 24/7 | Florida",
-      "source": "St. Augustine Live"
-    },
-    {
-      "videoId": "mYbn_umeenk",
-      "title": "Vilano Pier | Live 24/7 from Beaches at Vilano | St. Augustine",
+      "videoId": "ivLqjJmkgvE",
+      "title": "St. Augustine Information Channel | LIVE 24/7",
       "source": "St. Augustine Live"
     },
     {
@@ -43,8 +38,13 @@
       "source": "St. Augustine Live"
     },
     {
-      "videoId": "ivLqjJmkgvE",
-      "title": "St. Augustine Information Channel | LIVE 24/7",
+      "videoId": "mYbn_umeenk",
+      "title": "Vilano Pier | Live 24/7 from Beaches at Vilano | St. Augustine",
+      "source": "St. Augustine Live"
+    },
+    {
+      "videoId": "ORNGtJ7WB_8",
+      "title": "St. Augustine Lighthouse LIVE 24/7 | Florida",
       "source": "St. Augustine Live"
     }
   ]
