@@ -1,7 +1,12 @@
 {
-  "updated": "2026-09-19T16:45:19.493Z",
+  "updated": "2026-09-19T19:17:08.491Z",
   "channel": "UCznXKvxj3U1dEQDprXBmlQA",
   "live": [
+    {
+      "videoId": "ivLqjJmkgvE",
+      "title": "St. Augustine Information Channel | LIVE 24/7",
+      "source": "St. Augustine Live"
+    },
     {
       "videoId": "ZTk5cIbXH2g",
       "title": "St. Augustine Florida Skyline | LIVE 24/7 | Hosted by NoProfileBoatLifts",
@@ -13,18 +18,8 @@
       "source": "St. Augustine Live"
     },
     {
-      "videoId": "0lox0s8zNcU",
-      "title": "Bridge of Lions LIVE - 24/7 - St. Augustine, Florida",
-      "source": "St. Augustine Live"
-    },
-    {
       "videoId": "S8afSTXKkdw",
       "title": "Vilano Boat Ramp LIVE 24/7 | St. Augustine, Florida",
-      "source": "St. Augustine Live"
-    },
-    {
-      "videoId": "ivLqjJmkgvE",
-      "title": "St. Augustine Information Channel | LIVE 24/7",
       "source": "St. Augustine Live"
     },
     {
@@ -33,13 +28,18 @@
       "source": "St. Augustine Live"
     },
     {
-      "videoId": "mYbn_umeenk",
-      "title": "Vilano Pier | Live 24/7 from Beaches at Vilano | St. Augustine",
+      "videoId": "0lox0s8zNcU",
+      "title": "Bridge of Lions LIVE - 24/7 - St. Augustine, Florida",
       "source": "St. Augustine Live"
     },
     {
       "videoId": "LHtzZf4T7xw",
       "title": "St. Augustine Alligator Farm LIVE 24/7",
+      "source": "St. Augustine Live"
+    },
+    {
+      "videoId": "mYbn_umeenk",
+      "title": "Vilano Pier | Live 24/7 from Beaches at Vilano | St. Augustine",
       "source": "St. Augustine Live"
     },
     {
