@@ -1,17 +1,7 @@
 {
-  "updated": "2026-09-22T17:13:19.761Z",
+  "updated": "2026-09-22T20:26:57.749Z",
   "channel": "UCznXKvxj3U1dEQDprXBmlQA",
   "live": [
-    {
-      "videoId": "ORNGtJ7WB_8",
-      "title": "St. Augustine Lighthouse LIVE 24/7 | Florida",
-      "source": "St. Augustine Live"
-    },
-    {
-      "videoId": "S8afSTXKkdw",
-      "title": "Vilano Boat Ramp LIVE 24/7 | St. Augustine, Florida",
-      "source": "St. Augustine Live"
-    },
     {
       "videoId": "ivLqjJmkgvE",
       "title": "St. Augustine Information Channel | LIVE 24/7",
@@ -23,13 +13,23 @@
       "source": "St. Augustine Live"
     },
     {
+      "videoId": "FyGb2TZB344",
+      "title": "Castillo de San Marcos Fort LIVE 24/7 | St. Augustine",
+      "source": "St. Augustine Live"
+    },
+    {
+      "videoId": "S8afSTXKkdw",
+      "title": "Vilano Boat Ramp LIVE 24/7 | St. Augustine, Florida",
+      "source": "St. Augustine Live"
+    },
+    {
       "videoId": "uLJBad4vSno",
       "title": "Matanzas River, Lighthouse, Bridge of Lions + Marine Traffic VHF Audio",
       "source": "St. Augustine Live"
     },
     {
-      "videoId": "FyGb2TZB344",
-      "title": "Castillo de San Marcos Fort LIVE 24/7 | St. Augustine",
+      "videoId": "0lox0s8zNcU",
+      "title": "Bridge of Lions LIVE - 24/7 - St. Augustine, Florida",
       "source": "St. Augustine Live"
     },
     {
@@ -43,8 +43,8 @@
       "source": "St. Augustine Live"
     },
     {
-      "videoId": "0lox0s8zNcU",
-      "title": "Bridge of Lions LIVE - 24/7 - St. Augustine, Florida",
+      "videoId": "ORNGtJ7WB_8",
+      "title": "St. Augustine Lighthouse LIVE 24/7 | Florida",
       "source": "St. Augustine Live"
     }
   ]
