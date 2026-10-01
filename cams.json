@@ -1,15 +1,10 @@
 {
-  "updated": "2026-10-01T07:42:13.156Z",
+  "updated": "2026-10-01T15:22:46.436Z",
   "channel": "UCznXKvxj3U1dEQDprXBmlQA",
   "live": [
     {
       "videoId": "ivLqjJmkgvE",
       "title": "St. Augustine Information Channel | LIVE 24/7",
-      "source": "St. Augustine Live"
-    },
-    {
-      "videoId": "ZTk5cIbXH2g",
-      "title": "St. Augustine Florida Skyline | LIVE 24/7 | Hosted by NoProfileBoatLifts",
       "source": "St. Augustine Live"
     },
     {
@@ -35,6 +30,11 @@
     {
       "videoId": "LHtzZf4T7xw",
       "title": "St. Augustine Alligator Farm LIVE 24/7",
+      "source": "St. Augustine Live"
+    },
+    {
+      "videoId": "ZTk5cIbXH2g",
+      "title": "St. Augustine Florida Skyline | LIVE 24/7 | Hosted by NoProfileBoatLifts",
       "source": "St. Augustine Live"
     },
     {
