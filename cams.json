@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-01T20:27:44.118Z",
+  "updated": "2026-10-02T00:07:15.901Z",
   "channel": "UCznXKvxj3U1dEQDprXBmlQA",
   "live": [
     {
@@ -23,8 +23,13 @@
       "source": "St. Augustine Live"
     },
     {
-      "videoId": "mYbn_umeenk",
-      "title": "Vilano Pier | Live 24/7 from Beaches at Vilano | St. Augustine",
+      "videoId": "uLJBad4vSno",
+      "title": "Matanzas River, Lighthouse, Bridge of Lions + Marine Traffic VHF Audio",
+      "source": "St. Augustine Live"
+    },
+    {
+      "videoId": "LHtzZf4T7xw",
+      "title": "St. Augustine Alligator Farm LIVE 24/7",
       "source": "St. Augustine Live"
     },
     {
@@ -38,13 +43,8 @@
       "source": "St. Augustine Live"
     },
     {
-      "videoId": "LHtzZf4T7xw",
-      "title": "St. Augustine Alligator Farm LIVE 24/7",
-      "source": "St. Augustine Live"
-    },
-    {
-      "videoId": "uLJBad4vSno",
-      "title": "Matanzas River, Lighthouse, Bridge of Lions + Marine Traffic VHF Audio",
+      "videoId": "mYbn_umeenk",
+      "title": "Vilano Pier | Live 24/7 from Beaches at Vilano | St. Augustine",
       "source": "St. Augustine Live"
     }
   ]
