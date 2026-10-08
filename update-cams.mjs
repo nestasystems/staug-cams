@@ -66,6 +66,37 @@ async function getBeachcomber() {
     });
 }
 
+// --- 3. Known camera videos, checked directly (~1 unit per run) ---
+// YouTube's search (method 1) sometimes misses streams that ARE live. So we also
+// ask YouTube about each camera's known video ID directly. This is the
+// authoritative answer: "live" means it's streaming right now.
+// Keep this list in sync with the fallbackId values in the website's AREAS list.
+const KNOWN_IDS = {
+  "ZksWoEAhmTU": "St. George Street · South",
+  "FyGb2TZB344": "Castillo de San Marcos",
+  "uLJBad4vSno": "Matanzas Bay",
+  "R8LU4PCZdgo": "Bridge of Lions",
+  "ZTk5cIbXH2g": "St. Augustine Skyline",
+  "ZlqKcT4080E": "St. Augustine Lighthouse",
+  "mYbn_umeenk": "Vilano Pier",
+  "S8afSTXKkdw": "Vilano Boat Ramp",
+  "B0JYDF1L-us": "Crescent Beach",
+  "LHtzZf4T7xw": "Alligator Farm",
+};
+async function checkKnown() {
+  const ids = Object.keys(KNOWN_IDS);
+  const vids = await yt("videos", { part: "snippet", id: ids.join(",") });
+  const status = {};
+  for (const id of ids) status[id] = "gone";            // not returned = deleted/private
+  const liveOnes = [];
+  for (const v of vids.items || []) {
+    const isLive = v.snippet?.liveBroadcastContent === "live";
+    status[v.id] = isLive ? "live" : "not_live";
+    if (isLive) liveOnes.push({ videoId: v.id, title: v.snippet.title, source: v.snippet.channelTitle || "YouTube" });
+  }
+  return { status, liveOnes };
+}
+
 // --- Run ---
 let live;
 try {
@@ -81,10 +112,22 @@ try {
   console.warn("Beachcomber lookup failed, continuing without it:", err.message);
 }
 
+let checked = null;
+try {
+  const k = await checkKnown();
+  checked = k.status;
+  const have = new Set(live.map(v => v.videoId));
+  for (const v of k.liveOnes) if (!have.has(v.videoId)) { live.push(v); have.add(v.videoId); }
+  console.log("Known-ID check:", JSON.stringify(checked));
+} catch (err) {
+  console.warn("Known-ID check failed, continuing without it:", err.message);
+}
+
 const out = {
   updated: new Date().toISOString(),
   channel: STAUG_LIVE_ID,
-  live
+  live,
+  ...(checked ? { checked } : {})
 };
 
 await writeFile("cams.json", JSON.stringify(out, null, 2) + "\n");
