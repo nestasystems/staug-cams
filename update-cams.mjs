@@ -164,9 +164,9 @@ try {
 // Only write when something changed (or every 30 min as a heartbeat), so the
 // fast loop doesn't make hundreds of identical commits a day.
 const sig = o => JSON.stringify({ live: [...(o?.live || [])].map(v => v.videoId + "|" + v.title).sort(), checked: o?.checked || null });
-const out = { updated: new Date().toISOString(), channel: STAUG_LIVE_ID, live, ...(checked ? { checked } : {}) };
+const out = { updated: new Date().toISOString(), channel: STAUG_LIVE_ID, mode: DO_SEARCH ? "search" : "quick", live, ...(checked ? { checked } : {}) };
 const ageMin = prev?.updated ? (Date.now() - Date.parse(prev.updated)) / 60000 : Infinity;
-if (prev && sig(prev) === sig(out) && ageMin < 30) {
+if (prev && sig(prev) === sig(out) && ageMin < 30 && process.env.FORCE_WRITE !== "1") {
   console.log(`No change (${live.length} live). Skipping write.`);
 } else {
   await writeFile("cams.json", JSON.stringify(out, null, 2) + "\n");

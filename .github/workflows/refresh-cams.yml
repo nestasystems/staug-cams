@@ -44,7 +44,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           END=$(( $(date +%s) + 340*60 ))     # stop after ~5h40m
           i=0
-          if [ "${{ inputs.once }}" = "true" ]; then END=$(( $(date +%s) + 1 )); i=1; fi
+          if [ "${{ inputs.once }}" = "true" ]; then END=$(( $(date +%s) + 1 )); i=1; export FORCE_WRITE=1; fi
           while [ "$(date +%s)" -lt "$END" ]; do
             # full search on the first pass and then about once an hour
             if [ $(( i % 20 )) -eq 0 ]; then export DO_SEARCH=1; else export DO_SEARCH=0; fi
