@@ -89,12 +89,32 @@ async function checkKnown() {
   const status = {};
   for (const id of ids) status[id] = "gone";            // not returned = deleted/private
   const liveOnes = [];
+  const channels = new Set();
   for (const v of vids.items || []) {
     const isLive = v.snippet?.liveBroadcastContent === "live";
     status[v.id] = isLive ? "live" : "not_live";
+    if (v.snippet?.channelId) channels.add(v.snippet.channelId);
     if (isLive) liveOnes.push({ videoId: v.id, title: v.snippet.title, source: v.snippet.channelTitle || "YouTube" });
   }
-  return { status, liveOnes };
+  return { status, liveOnes, channels };
+}
+
+// --- 4. Every other channel our cameras come from (e.g. "See St. Augustine") ---
+// When a 24/7 stream restarts it gets a NEW video ID, so checking known IDs
+// isn't enough on its own. For each channel a known camera belongs to, list
+// its recent uploads and keep the ones that are live right now (~3 units each).
+async function liveOnChannel(channelId) {
+  const ch = await yt("channels", { part: "contentDetails,snippet", id: channelId });
+  const uploads = ch.items?.[0]?.contentDetails?.relatedPlaylists?.uploads;
+  const name = ch.items?.[0]?.snippet?.title || "YouTube";
+  if (!uploads) return [];
+  const pl = await yt("playlistItems", { part: "contentDetails", playlistId: uploads, maxResults: "50" });
+  const ids = (pl.items || []).map(i => i.contentDetails?.videoId).filter(Boolean);
+  if (!ids.length) return [];
+  const vids = await yt("videos", { part: "snippet", id: ids.join(",") });
+  return (vids.items || [])
+    .filter(v => v.snippet?.liveBroadcastContent === "live")
+    .map(v => ({ videoId: v.id, title: v.snippet.title, source: name }));
 }
 
 // --- Run ---
@@ -119,6 +139,15 @@ try {
   const have = new Set(live.map(v => v.videoId));
   for (const v of k.liveOnes) if (!have.has(v.videoId)) { live.push(v); have.add(v.videoId); }
   console.log("Known-ID check:", JSON.stringify(checked));
+
+  k.channels.delete(STAUG_LIVE_ID);                 // already covered by the search above
+  for (const chId of k.channels) {
+    try {
+      for (const v of await liveOnChannel(chId)) if (!have.has(v.videoId)) { live.push(v); have.add(v.videoId); }
+    } catch (err) {
+      console.warn("Channel check failed for", chId, "-", err.message);
+    }
+  }
 } catch (err) {
   console.warn("Known-ID check failed, continuing without it:", err.message);
 }
