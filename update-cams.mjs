@@ -12,7 +12,7 @@
 //
 // If the Beachcomber lookup fails, the St. Augustine Live results are still written.
 
-import { writeFile } from "node:fs/promises";
+import { writeFile, readFile } from "node:fs/promises";
 
 const API = "https://www.googleapis.com/youtube/v3/";
 const KEY = process.env.YT_API_KEY;
@@ -83,8 +83,8 @@ const KNOWN_IDS = {
   "B0JYDF1L-us": "Crescent Beach",
   "LHtzZf4T7xw": "Alligator Farm",
 };
-async function checkKnown() {
-  const ids = Object.keys(KNOWN_IDS);
+async function checkKnown(extraIds = []) {
+  const ids = [...new Set([...Object.keys(KNOWN_IDS), ...extraIds])].slice(0, 50);
   const vids = await yt("videos", { part: "snippet", id: ids.join(",") });
   const status = {};
   for (const id of ids) status[id] = "gone";            // not returned = deleted/private
@@ -118,47 +118,58 @@ async function liveOnChannel(channelId) {
 }
 
 // --- Run ---
+// DO_SEARCH=0 skips the expensive search (100 units) and uses the cheap
+// uploads-playlist method for St. Augustine Live instead. The workflow runs the
+// search about once an hour and the cheap check every few minutes, which keeps
+// us well inside YouTube's free 10,000-unit daily limit.
+const DO_SEARCH = process.env.DO_SEARCH !== "0";
+
+let prev = null;
+try { prev = JSON.parse(await readFile("cams.json", "utf8")); } catch {}
+const prevIds = (prev?.live || []).map(v => v.videoId).filter(Boolean);
+
 let live;
 try {
-  live = await getStAugLive();
+  live = DO_SEARCH ? await getStAugLive() : await liveOnChannel(STAUG_LIVE_ID);
 } catch (err) {
   console.error(err.message);
   process.exit(1); // main channel failed: don't overwrite cams.json with a partial list
 }
+const have = new Set(live.map(v => v.videoId));
+const add = list => { for (const v of list) if (!have.has(v.videoId)) { live.push(v); have.add(v.videoId); } };
 
 try {
-  live.push(...await getBeachcomber());
+  add(await getBeachcomber());
 } catch (err) {
   console.warn("Beachcomber lookup failed, continuing without it:", err.message);
 }
 
 let checked = null;
 try {
-  const k = await checkKnown();
-  checked = k.status;
-  const have = new Set(live.map(v => v.videoId));
-  for (const v of k.liveOnes) if (!have.has(v.videoId)) { live.push(v); have.add(v.videoId); }
+  // Known camera IDs + everything that was live last time, re-checked directly.
+  const k = await checkKnown(prevIds);
+  checked = Object.fromEntries(Object.keys(KNOWN_IDS).map(id => [id, k.status[id]]));
+  add(k.liveOnes);
   console.log("Known-ID check:", JSON.stringify(checked));
 
-  k.channels.delete(STAUG_LIVE_ID);                 // already covered by the search above
+  k.channels.delete(STAUG_LIVE_ID);                 // already covered above
   for (const chId of k.channels) {
-    try {
-      for (const v of await liveOnChannel(chId)) if (!have.has(v.videoId)) { live.push(v); have.add(v.videoId); }
-    } catch (err) {
-      console.warn("Channel check failed for", chId, "-", err.message);
-    }
+    try { add(await liveOnChannel(chId)); }
+    catch (err) { console.warn("Channel check failed for", chId, "-", err.message); }
   }
 } catch (err) {
   console.warn("Known-ID check failed, continuing without it:", err.message);
 }
 
-const out = {
-  updated: new Date().toISOString(),
-  channel: STAUG_LIVE_ID,
-  live,
-  ...(checked ? { checked } : {})
-};
-
-await writeFile("cams.json", JSON.stringify(out, null, 2) + "\n");
-console.log(`Wrote ${live.length} live stream(s) to cams.json`);
+// Only write when something changed (or every 30 min as a heartbeat), so the
+// fast loop doesn't make hundreds of identical commits a day.
+const sig = o => JSON.stringify({ live: [...(o?.live || [])].map(v => v.videoId + "|" + v.title).sort(), checked: o?.checked || null });
+const out = { updated: new Date().toISOString(), channel: STAUG_LIVE_ID, live, ...(checked ? { checked } : {}) };
+const ageMin = prev?.updated ? (Date.now() - Date.parse(prev.updated)) / 60000 : Infinity;
+if (prev && sig(prev) === sig(out) && ageMin < 30) {
+  console.log(`No change (${live.length} live). Skipping write.`);
+} else {
+  await writeFile("cams.json", JSON.stringify(out, null, 2) + "\n");
+  console.log(`Wrote ${live.length} live stream(s) to cams.json`);
+}
 for (const v of live) console.log("  •", v.title, "→", v.videoId);

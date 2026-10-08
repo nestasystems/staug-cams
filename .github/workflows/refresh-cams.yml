@@ -1,9 +1,22 @@
 name: Refresh St. Augustine cams
 
+# GitHub only starts scheduled runs every few hours in practice, so instead of
+# relying on the schedule for speed, each run stays alive for ~5h40m and checks
+# YouTube every 3 minutes. The schedule just makes sure a new run takes over
+# when the old one ends (only one runs at a time; one more waits in line).
+#
+# YouTube quota (10,000 units/day free):
+#   cheap check ~10 units x 480/day = ~4,800
+#   full search 100 units x  24/day = ~2,400   -> ~7,200/day total
 on:
   schedule:
     - cron: "7,37 * * * *"
   workflow_dispatch:
+    inputs:
+      once:
+        description: "Run a single quick check (no search) and stop — for testing"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -15,6 +28,7 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
+    timeout-minutes: 355
     steps:
       - uses: actions/checkout@v4
 
@@ -22,24 +36,28 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Fetch live streams
-        run: node update-cams.mjs
+      - name: Check for live cameras every 3 minutes
         env:
           YT_API_KEY: ${{ secrets.YT_API_KEY }}
-
-      - name: Commit if changed
         run: |
           git config user.name  "cam-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add cams.json
-          if git diff --staged --quiet; then
-            echo "No changes"
-            exit 0
-          fi
-          git commit -m "Refresh live cams"
-          for i in 1 2 3; do
-            git pull --rebase origin main && git push && exit 0
-            echo "Push failed, retrying in 5s..."
-            sleep 5
+          END=$(( $(date +%s) + 340*60 ))     # stop after ~5h40m
+          i=0
+          if [ "${{ inputs.once }}" = "true" ]; then END=$(( $(date +%s) + 1 )); i=1; fi
+          while [ "$(date +%s)" -lt "$END" ]; do
+            # full search on the first pass and then about once an hour
+            if [ $(( i % 20 )) -eq 0 ]; then export DO_SEARCH=1; else export DO_SEARCH=0; fi
+            git pull -q --rebase origin main || true
+            node update-cams.mjs || echo "check failed, will retry next pass"
+            git add cams.json
+            if ! git diff --staged --quiet; then
+              git commit -q -m "Refresh live cams"
+              for t in 1 2 3; do
+                git pull -q --rebase origin main && git push -q && break
+                echo "Push failed, retrying in 5s..."; sleep 5
+              done
+            fi
+            i=$(( i + 1 ))
+            if [ "$(date +%s)" -lt "$END" ]; then sleep 180; fi
           done
-          exit 1
