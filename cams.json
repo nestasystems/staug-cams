@@ -1,32 +1,32 @@
 {
-  "updated": "2026-10-09T17:47:42.980Z",
+  "updated": "2026-10-09T17:50:46.501Z",
   "channel": "UCznXKvxj3U1dEQDprXBmlQA",
-  "mode": "search",
+  "mode": "quick",
   "live": [
     {
-      "videoId": "ZTk5cIbXH2g",
-      "title": "St. Augustine Florida Skyline | LIVE 24/7 | Hosted by NoProfileBoatLifts",
-      "source": "St. Augustine Live"
-    },
-    {
-      "videoId": "mYbn_umeenk",
-      "title": "Vilano Pier | Live 24/7 from Beaches at Vilano | St. Augustine",
-      "source": "St. Augustine Live"
-    },
-    {
       "videoId": "ivLqjJmkgvE",
-      "title": "St. Augustine LIVE Information | Weather, Wind, Radar, &amp; More.",
-      "source": "St. Augustine Live"
+      "title": "St. Augustine LIVE Information | Weather, Wind, Radar, & More.",
+      "source": "See St. Augustine"
     },
     {
       "videoId": "FyGb2TZB344",
       "title": "Castillo de San Marcos Fort LIVE 24/7 | St. Augustine",
-      "source": "St. Augustine Live"
+      "source": "See St. Augustine"
     },
     {
       "videoId": "uLJBad4vSno",
       "title": "Matanzas River, Lighthouse, Bridge of Lions + Marine Traffic VHF Audio",
-      "source": "St. Augustine Live"
+      "source": "See St. Augustine"
+    },
+    {
+      "videoId": "ZTk5cIbXH2g",
+      "title": "St. Augustine Florida Skyline | LIVE 24/7 | Hosted by NoProfileBoatLifts",
+      "source": "See St. Augustine"
+    },
+    {
+      "videoId": "mYbn_umeenk",
+      "title": "Vilano Pier | Live 24/7 from Beaches at Vilano | St. Augustine",
+      "source": "See St. Augustine"
     },
     {
       "videoId": "S8afSTXKkdw",
