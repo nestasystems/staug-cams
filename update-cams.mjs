@@ -19,6 +19,9 @@ const KEY = process.env.YT_API_KEY;
 
 const STAUG_LIVE_ID = "UCznXKvxj3U1dEQDprXBmlQA"; // St. Augustine Live
 const BEACHCOMBER_HANDLE = "@BeachcomberStAugustine";  // Beachcomber St. Augustine
+// Extra YouTube channels to scan for live cameras every pass (~3 units each).
+// Surf Station runs the beach/surf cams (Crescent Beach, pier, etc.).
+const EXTRA_HANDLES = ["@SurfStationCam"];
 
 if (!KEY) {
   console.error("Missing YT_API_KEY environment variable.");
@@ -103,8 +106,9 @@ async function checkKnown(extraIds = []) {
 // When a 24/7 stream restarts it gets a NEW video ID, so checking known IDs
 // isn't enough on its own. For each channel a known camera belongs to, list
 // its recent uploads and keep the ones that are live right now (~3 units each).
-async function liveOnChannel(channelId) {
-  const ch = await yt("channels", { part: "contentDetails,snippet", id: channelId });
+async function liveOnChannel(channelId, handle) {
+  const ch = await yt("channels", handle ? { part: "contentDetails,snippet", forHandle: handle }
+                                         : { part: "contentDetails,snippet", id: channelId });
   const uploads = ch.items?.[0]?.contentDetails?.relatedPlaylists?.uploads;
   const name = ch.items?.[0]?.snippet?.title || "YouTube";
   if (!uploads) return [];
@@ -159,6 +163,11 @@ try {
   }
 } catch (err) {
   console.warn("Known-ID check failed, continuing without it:", err.message);
+}
+
+for (const h of EXTRA_HANDLES) {
+  try { add(await liveOnChannel(null, h)); }
+  catch (err) { console.warn("Channel check failed for", h, "-", err.message); }
 }
 
 // Only write when something changed (or every 30 min as a heartbeat), so the
