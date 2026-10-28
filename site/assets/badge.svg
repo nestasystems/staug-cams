@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="88" viewBox="0 0 320 88" role="img" aria-label="Recommended on WatchStAugustine.com">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FCF7EE"/><stop offset="1" stop-color="#E8F5F4"/></linearGradient></defs>
+  <rect x="1" y="1" width="318" height="86" rx="18" fill="url(#g)" stroke="#EAE0CF" stroke-width="2"/>
+  <circle cx="34" cy="44" r="9" fill="#FF5247"/>
+  <circle cx="34" cy="44" r="15" fill="none" stroke="#FF5247" stroke-opacity=".35" stroke-width="3"/>
+  <text x="60" y="34" font-family="Inter, system-ui, Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="1.4" fill="#0A6270">RECOMMENDED ON</text>
+  <text x="60" y="58" font-family="Inter, system-ui, Arial, sans-serif" font-size="21" font-weight="800" fill="#0F3A45">Watch <tspan fill="#FF6F59">St. Augustine</tspan></text>
+  <text x="60" y="75" font-family="Inter, system-ui, Arial, sans-serif" font-size="10.5" fill="#3A565C">A local pick · free live cams of the city</text>
+</svg>

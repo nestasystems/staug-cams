@@ -1,0 +1,2100 @@
+<!DOCTYPE html>
+<html lang="en" data-phase="day" data-view="wall">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>St. Augustine Live Cameras | Beach, Surf &amp; Historic Town</title>
+<meta name="description" content="Watch every free St. Augustine, Florida live cam on one page: the historic district, Bridge of Lions, lighthouse, Vilano Beach and surf, streaming 24/7." />
+<meta name="keywords" content="St. Augustine live cam, St. Augustine webcam, St. Augustine Beach cam, Vilano Beach cam, St. Augustine surf cam, Bridge of Lions camera, St. Augustine lighthouse cam, historic district live, Matanzas Bay, Florida live cameras, oldest city webcam, St. Johns County" />
+<meta name="author" content="Watch St. Augustine" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<link rel="canonical" href="https://watchstaugustine.com/" />
+<meta name="theme-color" content="#0F3A45" />
+<meta name="apple-mobile-web-app-title" content="WatchStAug" />
+<meta name="application-name" content="Watch St. Augustine" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="rating" content="general" />
+<meta http-equiv="content-language" content="en-US" />
+
+<!-- AI answer-engine crawler permissions -->
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large" />
+<meta name="bingbot" content="index, follow" />
+<meta name="GPTBot" content="index, follow" />
+<meta name="ChatGPT-User" content="index, follow" />
+<meta name="Google-Extended" content="index, follow" />
+<meta name="PerplexityBot" content="index, follow" />
+<meta name="ClaudeBot" content="index, follow" />
+<meta name="anthropic-ai" content="index, follow" />
+
+<!-- Open Graph / social -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://watchstaugustine.com/" />
+<meta property="og:title" content="St. Augustine Live Cameras | Beach, Surf & Historic Town" />
+<meta property="og:description" content="Every free St. Augustine, FL live cam on one page: town, beach, and surf, streaming 24/7." />
+<meta property="og:site_name" content="Watch St. Augustine" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:image" content="https://assets.cdn.filesafe.space/8yzojm3WV1TpigXrdMV6/media/6a3457d21c5d711b357049f3.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Watch St. Augustine: live cameras of St. Augustine, Florida" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="St. Augustine Live Cameras | Beach, Surf & Historic Town" />
+<meta name="twitter:description" content="Every free St. Augustine, FL live cam on one page: town, beach, and surf, streaming 24/7." />
+<meta name="twitter:image" content="https://assets.cdn.filesafe.space/8yzojm3WV1TpigXrdMV6/media/6a3457d21c5d711b357049f3.png" />
+<meta name="twitter:image:alt" content="Watch St. Augustine: live cameras of St. Augustine, Florida" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!--
+  ============================================================================
+  THIS PAGE HEALS ITSELF.  You shouldn't have to touch video IDs anymore.
+  ============================================================================
+  How it works:
+    • Each camera below is matched to a live stream by the WORDS in its title
+      ("St. George Street South", "Lighthouse", etc.). Titles stay the same
+      when a 24/7 stream restarts — only the hidden video ID changes.
+    • A small file, cams.json, lists the channel's currently-live streams.
+      A GitHub Action (repo nestasystems/staug-cams) checks YouTube every
+      3 minutes and updates it whenever a camera goes down or comes back.
+    • The page reads cams.json, matches titles → tiles, and the right stream
+      shows up automatically. No more chasing IDs.
+
+  If the feed can't be reached, the page falls back to the last-known IDs
+  baked into the AREAS list below. A camera that is down borrows a nearby
+  live camera, clearly labeled "Temporary view", until it comes back.
+
+  Only knob you might change:  FEED_URL  (just below) — where cams.json lives.
+  ============================================================================
+-->
+
+<style>
+  :root{
+    /* Beachy daylight palette — Anastasia Island at high noon */
+    --sand:      #FCF7EE;   /* warm light page base            */
+    --shell:     #FFFFFF;   /* cards                           */
+    --shell-2:   #FFFDF8;   /* warm card alt                   */
+    --foam:      #E8F5F4;   /* pale aqua wells / hovers        */
+    --hairline:  #EAE0CF;   /* soft warm rules                 */
+    --line-aqua: #D3E9E8;   /* cool hover border               */
+    --ink:       #0F3A45;   /* primary text — deep sea         */
+    --slate:     #3A565C;   /* muted text (deepened — AAA contrast) */
+    --coral:     #FF6F59;   /* primary accent — beach umbrella */
+    --coral-deep:#E2553C;   /* coral for small text            */
+    --aqua:      #10B4C8;   /* secondary accent — Atlantic     */
+    --aqua-deep: #0A6270;   /* deep Atlantic teal for small text (contrast) */
+    --sun:       #FFC23C;   /* sunshine pop                    */
+    --sun-deep:  #EAA21C;   /* sun for icons/small text        */
+    --live:      #FF5247;   /* the LIVE dot                    */
+    --glow:      rgba(255,200,70,.30);  /* ambient sun — phase-tinted */
+    --radius: 18px;
+    --maxw: 1480px;
+  }
+  /* sun-phase moods — the page stays bright; only the warm glow shifts */
+  html[data-phase="dawn"]  { --glow:rgba(255,176,120,.34); }
+  html[data-phase="day"]   { --glow:rgba(255,205,80,.30);  }
+  html[data-phase="dusk"]  { --glow:rgba(255,132,92,.34); }
+  html[data-phase="night"] { --glow:rgba(125,150,220,.22); }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background:
+      radial-gradient(1100px 560px at 82% -8%, var(--glow), transparent 60%),
+      radial-gradient(900px 520px at -8% 8%, rgba(16,180,200,.12), transparent 55%),
+      var(--sand);
+    color:var(--ink);
+    font-family:"Inter", system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.45;
+    transition:background 1.2s ease;
+  }
+  /* Background also painted on an in-content wrapper so it survives when the
+     page is embedded (e.g. GoHighLevel supplies its own white body). */
+  /* ---- Full-bleed: break out of the site builder's centered box so the
+     header, footer and background run edge to edge. ---- */
+  html, body{ margin:0 !important; padding:0 !important; }
+  body *:has(> .pagewrap), body *:has(.pagewrap){
+    max-width:none !important; width:auto !important;
+    padding:0 !important; margin:0 !important; background:transparent !important;
+  }
+  .pagewrap{
+    width:100vw; max-width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw);
+    overflow-x:clip;
+    min-height:100vh;
+    background:
+      radial-gradient(1100px 560px at 82% -8%, var(--glow), transparent 60%),
+      radial-gradient(900px 520px at -8% 8%, rgba(16,180,200,.12), transparent 55%),
+      var(--sand);
+    transition:background 1.2s ease;
+  }
+  a{ color:inherit; }
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    position:sticky; top:0; z-index:60;
+    display:flex; flex-wrap:wrap; align-items:center; gap:14px clamp(12px,2vw,22px);
+    padding:14px max(calc((100vw - var(--maxw)) / 2), clamp(16px,4vw,40px));
+    background:rgba(255,253,248,.78);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--hairline);
+  }
+  .brand{ display:flex; flex-direction:column; line-height:1; }
+  .sitenav{ display:flex; gap:6px; flex:1 1 auto; justify-content:center; }
+  .sitenav a{ font-size:15px; font-weight:600; color:var(--ink); text-decoration:none; padding:9px 16px; border-radius:999px; }
+  .sitenav a:hover, .sitenav a[aria-current]{ background:var(--foam); color:var(--aqua-deep); }
+  .brand .name{ font-family:"Inter", system-ui, sans-serif; font-weight:800; font-size:clamp(18px,2.4vw,24px); }
+  .brand .name em{ font-style:normal; font-weight:500; color:var(--coral); }
+  .brand .sub{ font-family:"Inter", system-ui, sans-serif; font-weight:700; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--aqua-deep); margin-top:6px; }
+  .topbar > *:not(.brand){ flex-shrink:0; }
+
+  /* the four condition chips share one tidy row below the brand/clock line */
+  .chips{ flex-basis:100%; display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:10px 14px; }
+
+  .phase{
+    display:flex; align-items:center; gap:9px;
+    font-family:"Inter", system-ui, sans-serif; font-size:11px; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--slate);
+    border:1px solid var(--hairline); border-radius:999px; padding:7px 13px;
+    background:var(--shell);
+  }
+  .phase svg{ width:15px; height:15px; stroke:var(--sun-deep); fill:none; stroke-width:1.6; }
+  .phase b{ color:var(--ink); font-weight:400; }
+  .phase .cond{ color:var(--slate); }
+  .phase .cond, .wx .cond{ white-space:nowrap; }
+
+  .wx{
+    display:flex; align-items:center; gap:9px;
+    font-family:"Inter", system-ui, sans-serif; font-size:11px; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--slate);
+    border:1px solid var(--hairline); border-radius:999px; padding:7px 13px;
+    background:var(--shell); white-space:nowrap;
+  }
+  .wx svg{ width:16px; height:16px; stroke:var(--aqua-deep); fill:none; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
+  .wx b{ color:var(--ink); font-weight:700; letter-spacing:0; }
+  .wx .cond{ color:var(--slate); }
+  /* tide + surf lead with a small caps label instead of an icon, so it's
+     obvious what each number means at a glance */
+  .wx .clab{ font-family:"Inter", system-ui, sans-serif; font-size:10px; font-weight:700;
+    letter-spacing:.08em; text-transform:uppercase; color:var(--aqua-deep); }
+  .surf .clab{ color:var(--coral-deep); }
+  .tide b, .surf b{ letter-spacing:0; }
+
+  .clock{ font-family:"Inter", system-ui, sans-serif; text-align:right; line-height:1.2; white-space:nowrap; }
+  .clock .time{ font-size:clamp(15px,2vw,19px); }
+  .clock .zone{ font-size:10px; letter-spacing:.08em; color:var(--slate); text-transform:uppercase; }
+
+  .btn{
+    font-family:"Inter", system-ui, sans-serif; font-size:12px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink); background:var(--shell); border:1px solid var(--hairline); border-radius:999px;
+    padding:9px 16px; cursor:pointer; white-space:nowrap;
+    transition:border-color .2s, color .2s, background .2s, box-shadow .2s;
+  }
+  .btn:hover{ border-color:var(--coral); color:var(--coral); box-shadow:0 6px 18px -10px rgba(255,111,89,.6); }
+  .btn.armed{ border-color:var(--coral); color:#fff; background:var(--coral); box-shadow:0 8px 22px -10px rgba(255,111,89,.7); }
+  .btn .dot{ color:var(--live); }
+
+  /* ---- Go Live: the primary call-to-action, deliberately louder than the
+         outlined header controls so visitors notice it (esp. on mobile, where
+         it's the tap that starts everything). ---- */
+  #masterPlay{
+    color:#fff; font-weight:700; letter-spacing:.08em;
+    background:linear-gradient(135deg, var(--coral), var(--coral-deep));
+    border-color:transparent; padding:10px 22px;
+    box-shadow:0 10px 24px -10px rgba(255,111,89,.75);
+    animation:cta-pulse 2.4s ease-in-out infinite;
+  }
+  #masterPlay .dot{ color:#fff; }
+  #masterPlay:hover{
+    color:#fff; border-color:transparent; transform:translateY(-1px); animation:none;
+    background:linear-gradient(135deg, #FF8473, var(--coral));
+    box-shadow:0 14px 30px -8px rgba(255,111,89,.9);
+  }
+  #masterPlay.armed{
+    animation:none;
+    background:linear-gradient(135deg, var(--coral-deep), var(--coral));
+    box-shadow:0 8px 22px -10px rgba(255,111,89,.7);
+  }
+  @keyframes cta-pulse{
+    0%,100%{ box-shadow:0 10px 24px -10px rgba(255,111,89,.75), 0 0 0 0 rgba(255,111,89,.5); }
+    50%{     box-shadow:0 10px 24px -10px rgba(255,111,89,.75), 0 0 0 9px rgba(255,111,89,0); }
+  }
+  @media (prefers-reduced-motion:reduce){ #masterPlay{ animation:none; } }
+
+  /* ---------- hero + spotlight ---------- */
+  .hero{ position:relative; overflow:hidden; border-bottom:1px solid var(--hairline);
+    padding:clamp(34px,5vw,64px) clamp(16px,4vw,40px) clamp(26px,4vw,40px); }
+  .beam{ /* sunshine rays */
+    position:absolute; inset:-40% -10% auto -10%; height:180%;
+    background:conic-gradient(from 0deg at 82% 18%,
+        transparent 0deg, var(--glow) 12deg, transparent 26deg,
+        transparent 150deg, var(--glow) 168deg, transparent 184deg);
+    transform-origin:82% 18%; animation:sweep 18s linear infinite; pointer-events:none;
+    mix-blend-mode:multiply; opacity:.8;
+  }
+  @keyframes sweep{ to{ transform:rotate(360deg); } }
+
+  .hero-inner{ position:relative; max-width:var(--maxw); margin:0 auto;
+    display:grid; grid-template-columns:minmax(300px, 1fr) 1.08fr; gap:clamp(20px,3vw,44px); align-items:center; }
+  .eyebrow{ font-family:"Inter", system-ui, sans-serif; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--aqua-deep); margin:0 0 16px; }
+  h1{ font-family:"Inter", system-ui, sans-serif; font-weight:800; font-size:clamp(32px,4.3vw,56px); line-height:1.0; margin:0; letter-spacing:-.02em; color:var(--ink); }
+  h1 em{ font-style:normal; font-weight:500; color:var(--coral); }
+  .lede{ margin:20px 0 0; max-width:52ch; color:var(--slate); font-size:clamp(15px,1.25vw,18px); line-height:1.55; }
+  .lede b{ color:var(--ink); font-weight:600; }
+  .countline{ margin:24px 0 0; font-family:"Inter", system-ui, sans-serif; font-size:14px; letter-spacing:.06em; color:var(--slate); display:flex; align-items:center; gap:9px; }
+  .countline .pulse{ width:9px; height:9px; border-radius:50%; background:var(--live); animation:pulse 1.6s ease-in-out infinite; }
+  .countline b{ color:var(--coral-deep); }
+
+  /* spotlight player */
+  .spot{ position:relative; border-radius:22px; overflow:hidden; border:1px solid var(--hairline);
+    background:var(--foam); box-shadow:0 30px 70px -34px rgba(15,58,69,.4); }
+  .spot .frame{ position:relative; aspect-ratio:16/9; }
+  .spot iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+  .spot .glass{ position:absolute; left:0; right:0; bottom:0; z-index:3; pointer-events:none;
+    display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
+    padding:16px 18px; background:linear-gradient(180deg, transparent, rgba(255,253,248,.94)); }
+  .spot .glass .who{ pointer-events:auto; }
+  .spot .glass .ey{ font-family:"Inter", system-ui, sans-serif; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--coral-deep); }
+  .spot .glass .nm{ font-family:"Inter", system-ui, sans-serif; font-weight:600; font-size:clamp(18px,2.4vw,26px); line-height:1.1; margin-top:3px; color:var(--ink); }
+  .spot .glass .nt{ font-family:"Inter", system-ui, sans-serif; font-size:11px; color:var(--slate); margin-top:3px; }
+  .spot .live-chip{ position:absolute; top:14px; left:14px; z-index:3;
+    display:inline-flex; align-items:center; gap:7px; font-family:"Inter", system-ui, sans-serif;
+    font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink);
+    background:rgba(255,255,255,.86); border:1px solid var(--hairline); padding:6px 11px; border-radius:999px; }
+  .spot .live-chip .pulse{ width:8px; height:8px; border-radius:50%; background:var(--live); animation:pulse 1.6s ease-in-out infinite; }
+  .spot .dots{ pointer-events:auto; display:flex; gap:7px; align-items:center; }
+  .spot .dots button{ width:9px; height:9px; padding:0; border-radius:50%; border:0; cursor:pointer; background:rgba(15,58,69,.25); transition:transform .2s, background .2s; }
+  .spot .dots button.on{ background:var(--coral); transform:scale(1.35); }
+  .spot .prog{ position:absolute; top:0; left:0; height:3px; z-index:4; background:var(--coral); width:0; }
+
+  @keyframes pulse{ 0%,100%{ box-shadow:0 0 0 0 rgba(255,82,71,.55);} 50%{ box-shadow:0 0 0 6px rgba(255,82,71,0);} }
+
+  /* ---------- area sections ---------- */
+  main{ max-width:var(--maxw); margin:0 auto; padding:clamp(26px,4vw,48px) clamp(16px,4vw,40px) 70px; }
+  .area{ margin-top:clamp(34px,5vw,60px); }
+  .area:first-child{ margin-top:6px; }
+  .area-head{ display:flex; align-items:baseline; gap:16px; padding-bottom:15px; margin-bottom:20px; border-bottom:1px solid var(--hairline); }
+  .area-head h2{ font-family:"Inter", system-ui, sans-serif; font-weight:600; font-size:clamp(22px,3vw,32px); margin:0; letter-spacing:-.01em; color:var(--ink); }
+  .area-head .blurb{ color:var(--slate); font-size:15px; margin-left:auto; text-align:right; max-width:42ch; }
+  .area-head .idx{ font-family:"Inter", system-ui, sans-serif; color:var(--aqua-deep); font-size:13px; letter-spacing:.1em; }
+
+  .grid{ display:grid; gap:clamp(14px,1.6vw,22px); grid-template-columns:repeat(auto-fill, minmax(330px, 1fr)); }
+  .cam{ background:var(--shell); border:1px solid var(--hairline); border-radius:var(--radius); overflow:hidden; display:flex; flex-direction:column;
+    box-shadow:0 12px 30px -20px rgba(15,58,69,.28); transition:border-color .25s, transform .25s, box-shadow .25s; }
+  .cam:hover{ border-color:var(--line-aqua); transform:translateY(-3px); box-shadow:0 20px 40px -22px rgba(15,58,69,.4); }
+  .stage{ position:relative; aspect-ratio:16/9; background:var(--foam); cursor:pointer; }
+  .stage iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; display:block; }
+  .thumb{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.9; }
+  /* surf embeds (CamStreamer) have no thumbnail endpoint — a calm-sea poster
+     keeps them from looking like a blank frame before you tap to play */
+  .cposter{ background:linear-gradient(180deg,#EAF6F5,#D3EAE9); opacity:1; }
+  .cposter-sea{ position:absolute; left:0; bottom:0; width:100%; height:72%; }
+  .cposter-sea path{ fill:none; stroke:#A6D3D0; stroke-width:1.5; stroke-linecap:round; opacity:.85; }
+  .stage.is-live .cposter{ display:none; }
+  .stage::after{ content:""; position:absolute; inset:0; pointer-events:none;
+    background:linear-gradient(180deg, rgba(15,58,69,.05) 0%, transparent 26%, transparent 70%, rgba(15,58,69,.08) 100%); }
+  .stage.is-live::after{ display:none; }
+
+  .badge{ position:absolute; top:12px; left:12px; z-index:3; display:inline-flex; align-items:center; gap:7px;
+    font-family:"Inter", system-ui, sans-serif; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink);
+    background:rgba(255,255,255,.86); padding:6px 10px; border-radius:999px; border:1px solid var(--hairline); }
+  .badge .pulse{ width:8px; height:8px; border-radius:50%; background:var(--live); }
+  .stage.is-live .badge .pulse{ animation:pulse 1.6s ease-in-out infinite; }
+  .badge.off{ color:var(--slate); }
+  .badge.off .pulse{ background:var(--slate); }
+
+  .play{ position:absolute; inset:0; z-index:2; margin:auto; width:62px; height:62px; border-radius:50%;
+    display:grid; place-items:center; background:rgba(255,255,255,.82); border:1px solid rgba(15,58,69,.12);
+    box-shadow:0 10px 24px -12px rgba(15,58,69,.5);
+    transition:transform .2s, background .2s, border-color .2s; }
+  .stage:hover .play{ transform:scale(1.08); border-color:var(--coral); background:#fff; }
+  .play svg{ width:24px; height:24px; fill:var(--ink); margin-left:3px; }
+  .stage:hover .play svg{ fill:var(--coral); }
+  .stage.is-live .play{ display:none; }
+
+  .placeholder{ position:absolute; inset:0; z-index:2; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; text-align:center; padding:18px; }
+  .placeholder p{ margin:0; color:var(--slate); font-size:13px; max-width:30ch; }
+
+  .meta{ display:flex; align-items:center; gap:10px; padding:13px 15px; border-top:1px solid var(--hairline); background:var(--shell-2); }
+  .meta .label{ display:flex; flex-direction:column; min-width:0; margin-right:auto; }
+  .meta .camname{ font-weight:600; font-size:15px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; color:var(--ink); }
+  .meta .note{ font-family:"Inter", system-ui, sans-serif; font-size:12px; color:var(--slate); }
+
+  .icon-btn{ flex:none; width:34px; height:34px; border-radius:10px; display:grid; place-items:center; cursor:pointer;
+    background:var(--shell); border:1px solid var(--hairline); transition:border-color .2s, background .2s; }
+  .icon-btn:hover{ border-color:var(--coral); background:var(--foam); }
+  .icon-btn svg{ width:16px; height:16px; fill:none; stroke:var(--slate); stroke-width:1.7; }
+  .icon-btn:hover svg{ stroke:var(--coral); }
+  .icon-btn.on{ border-color:var(--aqua); background:var(--foam); }
+  .icon-btn.on svg{ stroke:var(--aqua-deep); }
+  .icon-btn[disabled]{ opacity:.4; cursor:default; }
+  .icon-btn[disabled]:hover{ border-color:var(--hairline); background:var(--shell); }
+
+  /* ---------- footer ---------- */
+  footer{ border-top:1px solid var(--hairline); padding:32px clamp(16px,4vw,40px) 56px; color:var(--slate); font-size:13px; }
+  footer .wrap{ max-width:var(--maxw); margin:0 auto; display:flex; flex-wrap:wrap; gap:16px 40px; align-items:baseline; }
+  footer a{ color:var(--aqua-deep); text-decoration:none; }
+  footer a:hover{ color:var(--coral); }
+  footer .synced{ margin-left:auto; font-family:"Inter", system-ui, sans-serif; font-size:11px; letter-spacing:.06em; }
+  footer .synced b{ color:var(--ink); font-weight:400; }
+
+  @media (max-width:880px){
+    .hero-inner{ grid-template-columns:1fr; }
+  }
+  @media (max-width:600px){
+    .area-head{ flex-direction:column; gap:6px; }
+    .area-head .blurb{ margin-left:0; text-align:left; }
+    .clock, .phase{ display:none; }
+    .wx .cond{ display:none; }
+    .topbar{ flex-wrap:wrap; row-gap:12px; column-gap:10px; }
+    .brand{ flex:1 1 100%; margin-right:0; }
+    .sitenav{ flex:1 1 100%; justify-content:flex-start; order:3; }
+    .sitenav a{ font-size:13px; padding:6px 12px; }
+    .chips{ order:1; }
+    #masterPlay{ order:2; flex:1 1 100%; display:flex; align-items:center; justify-content:center; gap:8px; }
+    .grid{ grid-template-columns:1fr; }
+    .info p, .faq-answer p{ font-size:16.5px; line-height:1.72; }
+    .faq-question{ font-size:16.5px; }
+    .meta .camname{ font-size:16px; }
+    .meta .note{ font-size:13px; }
+    .eyebrow{ font-size:13.5px; letter-spacing:.2em; }
+    .brand .sub{ font-size:13px; }
+    .info-eyebrow{ font-size:13px; }
+  }
+  @media (prefers-reduced-motion:reduce){
+    .beam{ animation:none; }
+    .pulse, .stage.is-live .badge .pulse{ animation:none !important; }
+    html{ scroll-behavior:auto; }
+  }
+
+  /* ===================== view toggle + interactive map ===================== */
+  html[data-view="wall"] .map-only{ display:none; }
+  html[data-view="map"]  .wall-only{ display:none; }
+
+  .seg{ display:inline-flex; background:var(--shell); border:1px solid var(--hairline); border-radius:999px; padding:3px; gap:2px; }
+  .seg button{ font-family:"Inter", system-ui, sans-serif; font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+    border:0; background:none; color:var(--slate); padding:7px 12px; border-radius:999px; cursor:pointer;
+    display:inline-flex; align-items:center; gap:6px; transition:background .2s, color .2s; }
+  .seg button.on{ background:var(--coral); color:#fff; }
+  .seg button svg{ width:13px; height:13px; fill:none; stroke:currentColor; stroke-width:1.8; }
+  /* the toggle now lives in the hero (wall view) and the map header (map view) */
+  .seg-hero{ margin-top:24px; }
+  .map-head .seg{ margin-bottom:6px; }
+
+  .map-head{ max-width:var(--maxw); margin:0 auto; padding:clamp(26px,4vw,46px) clamp(16px,4vw,40px) 0;
+    display:flex; gap:20px 32px; align-items:flex-end; flex-wrap:wrap; }
+  .map-head .eyebrow{ margin-bottom:6px; }
+  .map-title{ font-family:"Inter", system-ui, sans-serif; font-weight:800; letter-spacing:-.02em;
+    font-size:clamp(26px,4vw,46px); margin:0; color:var(--ink); line-height:1; }
+  .map-sub{ color:var(--slate); max-width:40ch; margin:0 0 4px auto; font-size:14px; }
+
+  .mapwrap{ max-width:var(--maxw); margin:0 auto; padding:clamp(18px,3vw,30px) clamp(16px,4vw,40px) 72px;
+    display:grid; grid-template-columns:1.55fr 1fr; gap:clamp(16px,2.2vw,28px); align-items:start; }
+  .mapcanvas{ position:relative; border-radius:22px; overflow:hidden; border:1px solid var(--hairline);
+    box-shadow:0 22px 55px -32px rgba(15,58,69,.45); }
+  .map{ display:block; width:100%; height:auto; }
+
+  .pinlayer{ position:absolute; inset:0; }
+  .pin{ position:absolute; transform:translate(-50%,-50%); background:none; border:0; padding:0; cursor:pointer; z-index:2; }
+  .pin .head{ display:block; width:18px; height:18px; border-radius:50%; background:var(--coral);
+    border:3px solid #fff; box-shadow:0 4px 10px -3px rgba(15,58,69,.55), 0 0 0 1px rgba(15,58,69,.12);
+    transition:transform .15s, background .2s; }
+  .pin:hover{ z-index:5; }
+  .pin:hover .head{ transform:scale(1.22); }
+  .pin.off .head{ background:var(--slate); opacity:.7; }
+  .pin.active{ z-index:6; }
+  .pin.active .head{ background:var(--aqua); animation:pinpulse 1.5s ease-out infinite; }
+  @keyframes pinpulse{ 0%{ box-shadow:0 0 0 0 rgba(16,180,200,.5), 0 0 0 3px #fff;} 100%{ box-shadow:0 0 0 16px rgba(16,180,200,0), 0 0 0 3px #fff;} }
+  .pin .tip{ position:absolute; bottom:150%; left:50%; transform:translateX(-50%); white-space:nowrap;
+    background:var(--ink); color:#fff; font-family:"Inter", system-ui, sans-serif; font-size:11px; letter-spacing:.03em;
+    padding:4px 8px; border-radius:7px; opacity:0; pointer-events:none; transition:opacity .15s; }
+  .pin:hover .tip, .pin.active .tip{ opacity:1; }
+
+  .console{ position:sticky; top:84px; background:var(--shell); border:1px solid var(--hairline);
+    border-radius:22px; overflow:hidden; box-shadow:0 18px 44px -28px rgba(15,58,69,.45); }
+  .mp-frame{ position:relative; aspect-ratio:16/9; background:var(--foam); }
+  .mp-frame iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+  .mp-empty{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; text-align:center;
+    color:var(--slate); font-size:13px; line-height:1.5; padding:20px; }
+  .mp-chip{ position:absolute; top:12px; left:12px; z-index:3; display:inline-flex; align-items:center; gap:7px;
+    font-family:"Inter", system-ui, sans-serif; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink);
+    background:rgba(255,255,255,.88); border:1px solid var(--hairline); padding:6px 10px; border-radius:999px; }
+  .mp-chip .pulse{ width:8px; height:8px; border-radius:50%; background:var(--live); animation:pulse 1.6s ease-in-out infinite; }
+  .mp-meta{ display:flex; align-items:center; gap:10px; padding:13px 15px; border-top:1px solid var(--hairline); background:var(--shell-2); }
+  .mp-label{ display:flex; flex-direction:column; min-width:0; margin-right:auto; }
+  .mp-name{ font-family:"Inter", system-ui, sans-serif; font-weight:700; font-size:17px; color:var(--ink);
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .mp-note{ font-family:"Inter", system-ui, sans-serif; font-size:11px; color:var(--slate); }
+
+  /* stylized map artwork */
+  .m-water{ fill:#E6F4F3; }
+  .m-ocean{ fill:#CFEAE9; }
+  .m-land{ fill:#F4E8CE; stroke:#E6D5AF; stroke-width:2.5; }
+  .m-bridge{ stroke:#CBA86A; stroke-width:6; stroke-linecap:round; }
+  .m-wave path{ fill:none; stroke:#BFE0DE; stroke-width:3; stroke-linecap:round; }
+  .m-label{ fill:#9FB6B6; font-family:"Inter", system-ui, sans-serif; font-size:15px; letter-spacing:.08em; text-transform:uppercase; }
+  .m-label.sea{ fill:#86BCB7; }
+  .m-rose{ fill:#CBA86A; }
+  .m-rose-c{ fill:none; stroke:#CBA86A; stroke-width:2; }
+  .m-n{ fill:#CBA86A; font-family:"Inter", system-ui, sans-serif; font-size:12px; text-anchor:middle; }
+  .m-boat path{ fill:#CBA86A; opacity:.65; }
+
+  @media (max-width:880px){ .mapwrap{ grid-template-columns:1fr; } .console{ position:static; } }
+  @media (max-width:600px){ .map-sub{ margin-left:0; } }
+
+
+  /* ===================== enlarge / theater (3/4 framed view) ===================== */
+  .lightbox{ position:fixed; inset:0; z-index:200; display:none; align-items:center; justify-content:center;
+    padding:20px; background:rgba(15,58,69,.55); backdrop-filter:blur(4px); }
+  .lightbox.open{ display:flex; }
+  .lb-card{ background:var(--shell); border:1px solid var(--hairline); border-radius:24px;
+    box-shadow:0 40px 90px -40px rgba(15,58,69,.7); padding:clamp(14px,1.8vw,22px);
+    display:flex; flex-direction:column; gap:14px; max-width:94vw; max-height:94vh; }
+  .lb-bar{ display:flex; align-items:center; gap:10px; padding:0 2px; flex-wrap:wrap; }
+  .lb-chip{ display:inline-flex; align-items:center; gap:7px; font-family:"Inter", system-ui, sans-serif; font-size:11px;
+    letter-spacing:.08em; text-transform:uppercase; color:var(--ink); background:var(--foam);
+    border:1px solid var(--hairline); padding:6px 10px; border-radius:999px; }
+  .lb-chip .pulse{ width:8px; height:8px; border-radius:50%; background:var(--live); animation:pulse 1.6s ease-in-out infinite; }
+  .lb-name{ font-family:"Inter", system-ui, sans-serif; font-weight:700; font-size:clamp(16px,2vw,21px);
+    color:var(--ink); margin-right:auto; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  /* The padding around this stage is intentional framing space — a future home
+     for ads or updates. Kept clean and empty for now. */
+  .lb-stage{ position:relative; width:min(76vw, calc(74vh * 16 / 9)); aspect-ratio:16/9; background:var(--foam);
+    border:1px solid var(--hairline); border-radius:16px; overflow:hidden; }
+  .lb-stage iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+
+
+  /* real map (Leaflet / OpenStreetMap) */
+  .leaflet-map{ width:100%; height:clamp(420px,62vh,680px); background:var(--foam); }
+  .mpin{ display:block; width:18px; height:18px; border-radius:50%; background:var(--coral);
+    border:3px solid #fff; box-shadow:0 3px 8px -2px rgba(15,58,69,.6); }
+  .mpin.off{ background:var(--slate); opacity:.75; }
+  .mpin.active{ background:var(--aqua); box-shadow:0 0 0 4px rgba(16,180,200,.35), 0 3px 8px -2px rgba(15,58,69,.6); }
+  .leaflet-container{ font-family:"Inter", system-ui, sans-serif; }
+
+  .placeholder[hidden], .play[hidden]{ display:none !important; }
+
+  /* ===================== SEO / AEO content ===================== */
+  .sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden;
+    clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+
+  .intro-band{ max-width:var(--maxw); margin:0 auto; padding:8px clamp(16px,4vw,40px) 0; }
+
+  /* lead summary — soft beachy card with a coral→aqua accent */
+  .map-aeo{ margin:12px 0 16px; font-size:14px; line-height:1.6; }
+  .aeo-summary{ position:relative; background:var(--shell); border:1px solid var(--hairline);
+    border-radius:18px; padding:22px 26px 22px 30px; margin:0 auto 28px; max-width:940px;
+    font-family:"Inter", system-ui, sans-serif; font-size:17px; line-height:1.7; color:var(--ink);
+    box-shadow:0 22px 46px -34px rgba(15,58,69,.55); }
+  .aeo-summary::before{ content:""; position:absolute; left:0; top:16px; bottom:16px; width:4px;
+    border-radius:0 4px 4px 0; background:linear-gradient(var(--coral),var(--aqua)); }
+  .aeo-summary strong{ color:var(--ink); font-weight:700; }
+
+  /* About + FAQ reading section */
+  .info{ background:var(--sand); padding:18px clamp(16px,4vw,40px) 44px; }
+  .info .wrap{ max-width:940px; margin:0 auto; }
+  .info-eyebrow{ font-family:"Inter", system-ui, sans-serif; font-size:11px; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--aqua-deep); margin:44px 0 12px; display:flex;
+    align-items:center; gap:10px; }
+  .info-eyebrow::before{ content:""; width:22px; height:2px; border-radius:2px; background:var(--coral); }
+  .info h2{ font-family:"Inter", system-ui, sans-serif; font-weight:800; color:var(--ink);
+    font-size:clamp(25px,3.6vw,36px); margin:0 0 20px; letter-spacing:-.02em; line-height:1.04; }
+  .info p{ font-family:"Inter", system-ui, sans-serif; font-size:16px; line-height:1.72; color:var(--slate);
+    margin:0 0 16px; }
+  .info p b, .info p strong{ color:var(--ink); }
+
+  .faq-list{ display:flex; flex-direction:column; gap:12px; margin-top:4px; }
+  .faq-item{ background:var(--shell); border:1px solid var(--hairline); border-radius:16px;
+    overflow:hidden; transition:border-color .2s, box-shadow .2s, transform .2s; }
+  .faq-item:hover{ border-color:var(--line-aqua); box-shadow:0 18px 38px -30px rgba(15,58,69,.5); }
+  .faq-question{ width:100%; text-align:left; background:none; border:0; cursor:pointer;
+    padding:18px 20px; display:flex; align-items:center; gap:16px; font-family:"Inter", system-ui, sans-serif;
+    font-weight:600; font-size:16px; color:var(--ink); }
+  .faq-question .faq-toggle{ margin-left:auto; flex:none; width:30px; height:30px; border-radius:50%;
+    display:grid; place-items:center; background:var(--foam); color:var(--coral);
+    font-family:"Inter", system-ui, sans-serif; font-size:19px; line-height:1;
+    transition:transform .25s ease, background .2s, color .2s; }
+  .faq-item:hover .faq-toggle{ background:#FFE3DC; }
+  .faq-question.open .faq-toggle{ transform:rotate(45deg); background:var(--coral); color:#fff; }
+  .faq-answer{ max-height:0; overflow:hidden; transition:max-height .3s ease; }
+  .faq-answer p{ margin:0; padding:0 20px 20px; font-family:"Inter", system-ui, sans-serif; font-size:15px;
+    line-height:1.72; color:var(--slate); }
+
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--aqua); outline-offset:3px; border-radius:8px; }
+  @media (prefers-reduced-motion:reduce){ .faq-answer, .faq-toggle, .faq-item{ transition:none; } }
+
+  /* ===================== footer ===================== */
+  .sitefoot{ background:var(--ink); color:#CFE6E6; margin-top:54px;
+    padding:46px clamp(16px,4vw,40px) 34px; font-family:"Inter", system-ui, sans-serif; }
+  .sitefoot .inner{ max-width:var(--maxw); margin:0 auto; display:grid; gap:26px 40px;
+    grid-template-columns:minmax(220px,1.3fr) 1fr; align-items:start; }
+  .sf-brand .sf-name{ font-family:"Inter", system-ui, sans-serif; font-weight:800; font-size:20px; color:#fff; }
+  .sf-brand .sf-name em{ font-style:normal; color:var(--coral); font-weight:500; }
+  .sf-brand .sf-tag{ font-family:"Inter", system-ui, sans-serif; font-size:11px; letter-spacing:.08em;
+    text-transform:uppercase; color:#7FB0B4; margin-top:8px; }
+  .sf-brand p{ font-size:13px; line-height:1.6; color:#A9CACB; margin:14px 0 0; max-width:46ch; }
+  .sf-links{ display:flex; flex-wrap:wrap; gap:10px 40px; align-content:start; }
+  .sf-col h4{ font-family:"Inter", system-ui, sans-serif; font-size:10px; letter-spacing:.08em;
+    text-transform:uppercase; color:#6FA3A7; margin:0 0 12px; font-weight:400; }
+  .sf-col a, .sf-col button{ display:block; background:none; border:0; padding:0; cursor:pointer;
+    font-family:"Inter", system-ui, sans-serif; font-size:14px; color:#CFE6E6; text-decoration:none;
+    margin-bottom:9px; text-align:left; transition:color .15s; }
+  .sf-col a:hover, .sf-col button:hover{ color:var(--sun); }
+  .sf-base{ max-width:var(--maxw); margin:30px auto 0; padding-top:22px;
+    border-top:1px solid rgba(255,255,255,.10); display:flex; flex-wrap:wrap; gap:8px 16px;
+    align-items:center; font-size:12px; color:#86B0B3; }
+  .sf-base .dot{ opacity:.4; }
+  .sf-base .sf-credit{ color:#fff; font-weight:600; }
+  .sf-base .sf-credit a{ color:#fff; }
+  .sf-base a{ color:#86B0B3; text-decoration:underline; text-underline-offset:2px; }
+  .sf-base a:hover{ color:#CFE6E6; }
+  @media (max-width:680px){ .sitefoot .inner{ grid-template-columns:1fr; } }
+
+  /* ===================== legal pop-up ===================== */
+  .legal{ position:fixed; inset:0; z-index:300; display:none; align-items:center; justify-content:center;
+    padding:20px; background:rgba(15,58,69,.55); backdrop-filter:blur(4px); }
+  .legal.open{ display:flex; }
+  .legal-card{ background:var(--shell); border:1px solid var(--hairline); border-radius:22px;
+    box-shadow:0 40px 90px -40px rgba(15,58,69,.7); width:min(720px,94vw); max-height:90vh;
+    display:flex; flex-direction:column; }
+  .legal-head{ display:flex; align-items:center; gap:12px; padding:20px clamp(18px,3vw,28px);
+    border-bottom:1px solid var(--hairline); }
+  .legal-head h3{ font-family:"Inter", system-ui, sans-serif; font-weight:700;
+    font-size:clamp(18px,2.4vw,23px); color:var(--ink); margin:0 auto 0 0; }
+  .legal-x{ background:var(--foam); border:1px solid var(--hairline); border-radius:999px;
+    width:34px; height:34px; cursor:pointer; display:grid; place-items:center; color:var(--ink); flex:none; }
+  .legal-x svg{ width:16px; height:16px; stroke:currentColor; fill:none; stroke-width:1.8; stroke-linecap:round; }
+  .legal-body{ overflow:auto; padding:6px clamp(18px,3vw,28px) 26px; }
+  .legal-body h4{ font-family:"Inter", system-ui, sans-serif; font-weight:700; font-size:15px; color:var(--ink); margin:20px 0 7px; }
+  .legal-body p, .legal-body li{ font-family:"Inter", system-ui, sans-serif; font-size:14px; line-height:1.65; color:var(--slate); }
+  .legal-body p{ margin:0 0 11px; }
+  .legal-body ul{ margin:0 0 11px; padding-left:20px; }
+  .legal-body li{ margin-bottom:5px; }
+  .legal-body a{ color:var(--aqua-deep); }
+  .legal-eff{ font-family:"Inter", system-ui, sans-serif; font-size:11px; letter-spacing:.04em; color:var(--slate); margin:0 0 4px; }
+
+  /* ===================== cookie notice ===================== */
+  .cookie{ position:fixed; left:16px; right:16px; bottom:16px; z-index:190; max-width:560px; margin:0 auto;
+    background:var(--ink); color:#DCEDED; border-radius:16px; padding:15px 18px;
+    box-shadow:0 24px 60px -28px rgba(15,58,69,.85); display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+    font-family:"Inter", system-ui, sans-serif; font-size:13px; line-height:1.5; }
+  .cookie[hidden]{ display:none; }
+  .cookie p{ margin:0; flex:1 1 260px; }
+  .cookie a{ color:var(--sun); text-decoration:underline; cursor:pointer; }
+  .cookie button{ font-family:"Inter", system-ui, sans-serif; font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+    cursor:pointer; border:0; border-radius:999px; padding:9px 18px; background:var(--coral); color:#fff; }
+  .cookie button:hover{ background:var(--coral-deep); }
+
+  /* ---- modern type polish (Inter) ---- */
+  body{ font-feature-settings:"cv11","ss01"; }
+  .clock, .countline, #liveCount, .wx b, footer .synced{ font-variant-numeric:tabular-nums; }
+  h1, .brand .name, .area-head h2, .map-title{ letter-spacing:-.025em; }
+
+  /* ---- "always free" line under the hero ---- */
+  .freeline{ margin:10px 0 0; display:flex; align-items:center; gap:8px; font-size:14px; font-weight:600; color:var(--ink); }
+  .freeline svg{ width:16px; height:16px; flex:none; fill:none; stroke:var(--aqua-deep); stroke-width:2.6; stroke-linecap:round; stroke-linejoin:round; }
+
+  /* ---- "Camera down" cards ---- */
+  .cam.is-down .stage{ cursor:default; background:repeating-linear-gradient(135deg, var(--foam) 0 14px, var(--shell-2) 14px 28px); }
+  .cam.is-down:hover{ transform:none; }
+  .cam.is-down .badge{ color:#9A3B2E; background:#FDECE8; border-color:#F3C8BE; }
+  .cam.is-down .badge .pulse{ background:#D2543F; }
+  .placeholder.down .ph-connecting{ font-size:14px; font-weight:500; color:var(--slate); }
+  .cam.is-down .placeholder.down .ph-connecting{ display:none; }
+  .cam:not(.is-down) .placeholder.down .down-title,
+  .cam:not(.is-down) .placeholder.down .down-msg,
+  .cam:not(.is-down) .placeholder.down .alt-btn{ display:none !important; }
+  .placeholder.down .down-title{ font-size:17px; font-weight:700; color:var(--ink); letter-spacing:-.01em; }
+  .placeholder.down p{ font-size:13px; line-height:1.45; }
+  .alt-btn{ margin-top:4px; font:600 13px/1 "Inter", system-ui, sans-serif; color:#fff; background:var(--aqua-deep);
+    border:0; border-radius:999px; padding:9px 14px; cursor:pointer; max-width:100%; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .alt-btn:hover{ filter:brightness(1.08); }
+  .alt-btn[hidden]{ display:none !important; }
+  .temp-chip{ position:absolute; left:12px; bottom:12px; z-index:4; max-width:calc(100% - 24px);
+    font:600 12px/1.2 "Inter", system-ui, sans-serif; color:#5A3A00; background:#FFE9B8; border:1px solid #F2C96B;
+    padding:6px 10px; border-radius:999px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; pointer-events:none; }
+  .temp-chip[hidden]{ display:none !important; }
+  .cam.is-temp .badge{ color:#5A3A00; background:#FFE9B8; border-color:#F2C96B; }
+  .cam.is-temp .badge .pulse{ background:#E0A21B; }
+  .cam.is-temp .meta .note{ color:#9A6A00; }
+  .cam.flash{ border-color:var(--coral); box-shadow:0 0 0 4px rgba(255,120,90,.35); }
+  .mp-empty .alt-btn{ margin-top:12px; }
+</style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://watchstaugustine.com/#organization",
+      "name": "Watch St. Augustine",
+      "alternateName": "WatchStAugustine",
+      "url": "https://watchstaugustine.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://assets.cdn.filesafe.space/8yzojm3WV1TpigXrdMV6/media/6a3457d21c5d711b357049f3.png",
+        "width": 1200,
+        "height": 630
+      },
+      "image": "https://assets.cdn.filesafe.space/8yzojm3WV1TpigXrdMV6/media/6a3457d21c5d711b357049f3.png",
+      "description": "Watch St. Augustine is an independent guide that gathers free, public live cameras of St. Augustine, Florida into one page.",
+      "foundingDate": "2026",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "hello@watchstaugustine.com",
+        "contactType": "customer service",
+        "availableLanguage": "English"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "St. Augustine, Florida"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://watchstaugustine.com/#website",
+      "name": "Watch St. Augustine",
+      "url": "https://watchstaugustine.com/",
+      "publisher": {
+        "@id": "https://watchstaugustine.com/#organization"
+      },
+      "creator": {
+        "@id": "https://nestasystems.com/#organization"
+      },
+      "maintainer": {
+        "@id": "https://nestasystems.com/#organization"
+      },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://nestasystems.com/#organization",
+      "name": "Nesta Systems",
+      "alternateName": "Nestasystems.com",
+      "url": "https://nestasystems.com/",
+      "description": "Nesta Systems is a small business consulting company in St. Augustine, Florida that helps local businesses win more repeat customers and referrals. It built and maintains watchstaugustine.com.",
+      "address": { "@type": "PostalAddress", "addressLocality": "St. Augustine", "addressRegion": "FL", "addressCountry": "US" }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://watchstaugustine.com/#webpage",
+      "url": "https://watchstaugustine.com/",
+      "name": "St. Augustine Live Cameras | Beach, Surf & Historic Town",
+      "description": "Watch every free St. Augustine, Florida live cam on one page: the historic district, Bridge of Lions, lighthouse, Vilano Beach and surf, streaming 24/7.",
+      "isPartOf": {
+        "@id": "https://watchstaugustine.com/#website"
+      },
+      "about": {
+        "@id": "https://watchstaugustine.com/#st-augustine"
+      },
+      "mainEntity": {
+        "@id": "https://watchstaugustine.com/#st-augustine"
+      },
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".aeo-definition",
+          ".aeo-summary",
+          ".hero h1",
+          ".lede"
+        ]
+      },
+      "inLanguage": "en-US",
+      "datePublished": "2026-06-18",
+      "dateModified": "2026-10-26"
+    },
+    {
+      "@type": "TouristDestination",
+      "@id": "https://watchstaugustine.com/#st-augustine",
+      "name": "St. Augustine, Florida",
+      "description": "St. Augustine is the oldest continuously occupied European-founded city in the United States, established in 1565, on Florida's First Coast in St. Johns County.",
+      "url": "https://watchstaugustine.com/",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 29.9012,
+        "longitude": -81.3124
+      },
+      "containedInPlace": {
+        "@type": "AdministrativeArea",
+        "name": "St. Johns County, Florida"
+      },
+      "touristType": [
+        "Sightseeing",
+        "Beach",
+        "History"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://watchstaugustine.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "St. Augustine Live Cameras",
+          "item": "https://watchstaugustine.com/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://watchstaugustine.com/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is there a live webcam of St. Augustine, Florida?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. watchstaugustine.com streams free live cameras of St. Augustine, Florida on one page, including the historic district, the Bridge of Lions, the lighthouse area, Vilano Beach, and the St. Augustine Beach pier. The cameras run 24 hours a day and are provided by local operators See St. Augustine and Surf Station."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I watch St. Augustine Beach and the surf live?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The page includes live surf cameras for St. Augustine Beach and Vilano Beach, with pier and street-level views from Surf Station. They are handy for checking the waves, wind, and crowds before you head to the coast."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I check the St. Augustine tides and surf report?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The header shows today's tide times for St. Augustine Beach, predicted by NOAA, plus a live surf summary of wave height, period, and direction from the Open-Meteo marine model. Together with the beach and pier cameras, you can check conditions at a glance before heading out."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does it cost to watch the St. Augustine cameras?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nothing. Every camera on watchstaugustine.com is free to watch, with no account, app, or subscription required. The page simply gathers public live streams into one place."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What can I see on the St. Augustine live cameras?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The cameras cover the city's main landmarks and coastline: St. George Street and the historic district, the Bridge of Lions over Matanzas Bay, the lighthouse and bayfront, Vilano Beach, and the St. Augustine Beach pier and surf. Views are grouped by area so you can jump straight to the spot you want."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who runs the St. Augustine cameras?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The live feeds are owned and operated by third parties, mainly See St. Augustine and Surf Station. watchstaugustine.com is an independent guide that gathers those public streams in one place and is not affiliated with the camera operators or the City of St. Augustine."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who built and maintains watchstaugustine.com?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "watchstaugustine.com was built and is maintained by Nestasystems.com. The site is an independent guide: it does not operate any cameras, and the live feeds belong to their respective operators."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does a camera say “Temporary view”?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We don't run the cameras. They belong to local operators, and sometimes a camera goes down on their end for maintenance or an outage. When that happens we fill its spot with a temporary live view from a nearby camera, clearly labeled, while we look for an alternate. The camera list is rechecked about every 3 minutes, so when the operator's stream returns, the usual camera comes back on its own, usually within about 5 minutes. Every camera is always free to watch."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the weather like in St. Augustine right now?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The page shows the current St. Augustine temperature and conditions in the header, refreshed every 10 minutes from Open-Meteo. Combined with the live cameras, it gives you a real-time look at conditions before visiting."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When is the best time to watch St. Augustine live?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sunrise over the Atlantic and the evening golden hour are the most scenic times to watch, and the page tints itself to match the real local sun phase. A live Eastern Time clock shows the city's exact local time so you can plan around it."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="pagewrap">
+
+<div class="sr-only aeo-definition">
+  <h2>What is Watch St. Augustine?</h2>
+  <p>Watch St. Augustine is a free live-camera guide to St. Augustine, Florida, the oldest continuously occupied European-founded city in the United States, established in 1565. It gathers public 24/7 live streams from across the city onto one page: St. George Street and the historic district, the Bridge of Lions over Matanzas Bay, the lighthouse and bayfront, Vilano Beach, and the St. Augustine Beach pier and surf. The live feeds are operated by local providers See St. Augustine and Surf Station; Watch St. Augustine is an independent guide and is not affiliated with them or the City of St. Augustine. The page also shows the current local temperature, conditions, and Eastern Time, plus today's NOAA tide times and a live surf summary for St. Augustine Beach. St. Augustine sits at roughly 29.90 N, 81.31 W in St. Johns County on Florida's First Coast. It is available free at https://watchstaugustine.com. The site is built and maintained by Nestasystems.com.</p>
+</div>
+
+<header class="topbar">
+  <div class="brand">
+    <div class="name">Watch <em>St. Augustine</em></div>
+    <div class="sub">Oldest city in the U.S. · est. 1565</div>
+  </div>
+  <nav class="sitenav" aria-label="Main navigation"><a href="https://watchstaugustine.com/" aria-current="page">Live cams</a><a href="https://watchstaugustine.com/restaurants">Restaurants</a><a href="https://watchstaugustine.com/about">About</a></nav>
+  <div class="clock">
+    <div class="time" id="clock">--:--:--</div>
+    <div class="zone">St. Augustine · ET</div>
+  </div>
+  <button class="btn wall-only" id="masterPlay" title="Stream every camera at once (heavy on slower connections)">
+    <span class="dot">●</span> Go live · all
+  </button>
+
+  <div class="chips">
+    <div class="phase" id="phase" title="Sun over St. Augustine right now">
+      <span id="phaseIcon"></span><b id="phaseName">--</b><span class="cond"> · <span id="phaseTime">--</span></span>
+    </div>
+    <div class="wx" id="wx" title="Current conditions in St. Augustine">
+      <span id="wxIcon"></span><b id="wxTemp">--°</b><span class="cond"> · <span id="wxCond">checking…</span></span>
+    </div>
+    <div class="wx tide" id="tide" title="Today's tides · St. Augustine Beach (NOAA)">
+      <span class="clab">Tide</span><b id="tideMain">--</b><span class="cond"> · <span id="tideSub">loading…</span></span>
+    </div>
+    <div class="wx surf" id="surfChip" title="Surf right now · St. Augustine Beach">
+      <span class="clab">Surf</span><b id="surfMain">--</b><span class="cond"> · <span id="surfSub">checking…</span></span>
+    </div>
+  </div>
+</header>
+
+<section class="hero wall-only">
+  <div class="beam" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div>
+      <p class="eyebrow">Town &amp; beach · streaming now</p>
+      <h1>Come watch the oldest city<br><em>wake up, surf, and shine.</em></h1>
+      <p class="lede">Every free live cam from St. Augustine on one wall: the coquina lanes
+        of the <b>historic district</b>, the <b>Bridge of Lions</b> over Matanzas Bay, the
+        <b>lighthouse</b>, and the <b>beaches</b> at Vilano. The feed mends itself, so the
+        views stay live around the clock.</p>
+      <p class="countline"><span class="pulse"></span><span><b id="liveCount">0</b> cameras live<span id="downCount"></span></span></p>
+      <p class="freeline"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>100% free to watch. No sign-up, no paywall, ever.</p>
+      <div class="seg seg-hero" role="tablist" aria-label="View"><button data-v="wall" class="on" onclick="setView('wall')"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Wall</button><button data-v="map" onclick="setView('map')"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.4"/></svg>Map</button></div>
+    </div>
+
+    <!-- rotating spotlight -->
+    <div class="spot" id="spot">
+      <span class="live-chip"><span class="pulse"></span>On air</span>
+      <div class="prog" id="spotProg"></div>
+      <div class="frame" id="spotFrame"></div>
+      <div class="glass">
+        <div class="who">
+          <div class="ey">Spotlight</div>
+          <div class="nm" id="spotName">Tuning in…</div>
+          <div class="nt" id="spotNote">finding a live view</div>
+        </div>
+        <div class="dots" id="spotDots"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="intro-band wall-only">
+  <p class="aeo-summary"><strong>Watch St. Augustine streams every free public live camera of St. Augustine, Florida in one place.</strong> The wall below covers the historic district, the Bridge of Lions, the lighthouse and bayfront, Vilano Beach, and the St. Augustine Beach surf, grouped by area and running 24/7. Cameras are provided by See St. Augustine and Surf Station, and the feed mends itself when a stream restarts.</p>
+</div>
+
+<main id="wall" class="wall-only"></main>
+
+<section class="map-only" id="mapView">
+  <div class="map-head">
+    <div>
+      <p class="eyebrow">Explore by place</p>
+      <h2 class="map-title">St. Augustine, pin by pin</h2>
+    </div>
+    <p class="map-sub">Tap a pin to watch that camera live: downtown, the bridges, the lighthouse, and the beaches.</p>
+    <p class="aeo-summary map-aeo"><strong>The map shows the location of every St. Augustine live camera on this page, from the historic district downtown to the beaches at Vilano and St. Augustine Beach.</strong> Each pin sits where its camera is pointed. A coral pin is live now; a grey pin marks a camera that is down. Tap a pin to play that camera in the side player.</p>
+    <div class="seg" role="tablist" aria-label="View"><button data-v="wall" onclick="setView('wall')"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Wall</button><button data-v="map" class="on" onclick="setView('map')"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.4"/></svg>Map</button></div>
+  </div>
+  <div class="mapwrap">
+    <div class="mapcanvas">
+      <div id="map" class="leaflet-map"></div>
+    </div>
+    <aside class="console">
+      <div class="mp-frame" id="mpFrame">
+        <span class="mp-chip" id="mpChip" style="visibility:hidden"><span class="pulse"></span>Live</span>
+        <div class="mp-empty">Tap a pin to watch a live view.</div>
+      </div>
+      <div class="mp-meta">
+        <div class="mp-label"><span class="mp-name" id="mpName">Pick a camera</span><span class="mp-note" id="mpNote">from the map</span></div>
+        <button class="icon-btn" id="mpSnd" aria-label="Sound on or off" title="Sound" disabled><svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16 9l4 6M20 9l-4 6"/></svg></button>
+        <button class="icon-btn" id="mpFs" aria-label="Enlarge camera" title="Enlarge" disabled><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+        <a class="icon-btn" id="mpOpen" href="https://www.youtube.com/channel/UCznXKvxj3U1dEQDprXBmlQA/streams" target="_blank" rel="noopener" title="Open on YouTube"><svg viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="info" id="about">
+  <div class="wrap">
+    <p class="info-eyebrow">About this page</p>
+    <h2>About the St. Augustine live cameras</h2>
+    <p class="aeo-summary"><strong>These are free, public live cameras covering St. Augustine, Florida and its beaches, gathered into one page.</strong> The views span the historic Spanish colonial district, the Matanzas Bayfront, the lighthouse, Vilano Beach, and the St. Augustine Beach pier and surf, with feeds from See St. Augustine and Surf Station.</p>
+    <p>St. Augustine is the oldest city in the United States, founded by the Spanish in 1565, and it sits right on Florida's First Coast. This page pulls the city's free public webcams together so you can watch the whole place at once: the cobblestone lanes downtown, the Bridge of Lions lifting for boats, and the waves rolling in at the beach, without hunting around for separate streams.</p>
+    <p>It's built for two kinds of people. Locals who want a quick look at the surf, the weather, or how busy downtown is before heading out. And visitors planning a trip who want to see the city in real time, check conditions, and get a feel for the place first. The header shows the live temperature, today's tide times for St. Augustine Beach, a live surf summary, and the city's exact Eastern Time. The page even shifts its light to match the real St. Augustine sunrise and sunset.</p>
+    <p>Cameras occasionally go down when an operator restarts a stream or has an outage. When that happens its spot shows a clearly labeled temporary view from a nearby live camera, and the usual camera returns on its own when its stream comes back. Watching is always free.</p>
+
+    <p class="info-eyebrow">Good to know</p>
+    <h2 id="faq">Frequently asked questions</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">Is there a live webcam of St. Augustine, Florida?<span class="faq-toggle" aria-hidden="true">+</span></button>
+        <div class="faq-answer"><p>Yes. watchstaugustine.com streams free live cameras of St. Augustine, Florida on one page, including the historic district, the Bridge of Lions, the lighthouse area, Vilano Beach, and the St. Augustine Beach pier. The cameras run 24 hours a day and are provided by local operators See St. Augustine and Surf Station.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">Can I watch St. Augustine Beach and the surf live?<span class="faq-toggle" aria-hidden="true">+</span></button>
+        <div class="faq-answer"><p>Yes. The page includes live surf cameras for St. Augustine Beach and Vilano Beach, with pier and street-level views from Surf Station. They are handy for checking the waves, wind, and crowds before you head to the coast.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">Can I check the St. Augustine tides and surf report?<span class="faq-toggle" aria-hidden="true">+</span></button>
+        <div class="faq-answer"><p>Yes. The header shows today's tide times for St. Augustine Beach, predicted by NOAA, plus a live surf summary of wave height, period, and direction from the Open-Meteo marine model. Together with the beach and pier cameras, you can check conditions at a glance before heading out.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">How much does it cost to watch the St. Augustine cameras?<span class="faq-toggle" aria-hidden="true">+</span></button>
+        <div class="faq-answer"><p>Nothing. Every camera on watchstaugustine.com is free to watch, with no account, app, or subscription required. The page simply gathers public live streams into one place.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">What can I see on the St. Augustine live cameras?<span class="faq-toggle" aria-hidden="true">+</span></button>
+        <div class="faq-answer"><p>The cameras cover the city's main landmarks and coastline: St. George Street and the historic district, the Bridge of Lions over Matanzas Bay, the lighthouse and bayfront, Vilano Beach, and the St. Augustine Beach pier and surf. Views are grouped by area so you can jump straight to the spot you want.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">Who runs the St. Augustine cameras?<span class="faq-toggle" aria-hidden="true">+</span></button>
+        <div class="faq-answer"><p>The live feeds are owned and operated by third parties, mainly See St. Augustine and Surf Station. watchstaugustine.com is an independent guide that gathers those public streams in one place and is not affiliated with the camera operators or the City of St. Augustine.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">Who built and maintains watchstaugustine.com?<span class="faq-toggle" aria-hidden="true">+</span></button>
+        <div class="faq-answer"><p>watchstaugustine.com was built and is maintained by <a href="https://nestasystems.com" target="_blank" rel="noopener">Nestasystems.com</a>. The site is an independent guide: it does not operate any cameras, and the live feeds belong to their respective operators.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">Why does a camera say “Temporary view”?<span class="faq-toggle" aria-hidden="true">+</span></button>
+        <div class="faq-answer"><p>We don't run the cameras. They belong to local operators, and sometimes a camera goes down on their end for maintenance or an outage. When that happens we fill its spot with a temporary live view from a nearby camera, clearly labeled, while we look for an alternate. The camera list is rechecked about every 3 minutes, so when the operator's stream returns, the usual camera comes back on its own, usually within about 5 minutes. Every camera is always free to watch.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">What is the weather like in St. Augustine right now?<span class="faq-toggle" aria-hidden="true">+</span></button>
+        <div class="faq-answer"><p>The page shows the current St. Augustine temperature and conditions in the header, refreshed every 10 minutes from Open-Meteo. Combined with the live cameras, it gives you a real-time look at conditions before visiting.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">When is the best time to watch St. Augustine live?<span class="faq-toggle" aria-hidden="true">+</span></button>
+        <div class="faq-answer"><p>Sunrise over the Atlantic and the evening golden hour are the most scenic times to watch, and the page tints itself to match the real local sun phase. A live Eastern Time clock shows the city's exact local time so you can plan around it.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="sitefoot">
+  <div class="inner">
+    <div class="sf-brand">
+      <div class="sf-name">Watch <em>St. Augustine</em></div>
+      <div class="sf-tag">Live from the oldest city · est. 1565</div>
+      <p>An independent viewing guide that gathers free, public live cameras of St. Augustine, Florida into one place. We don't operate the cameras. The live feeds are courtesy of their respective operators.</p>
+    </div>
+    <div class="sf-links">
+      <div class="sf-col">
+        <h4>The page</h4>
+        <button onclick="setView('wall')">Camera wall</button>
+        <a href="https://watchstaugustine.com/restaurants">Restaurants we recommend</a>
+        <a href="https://watchstaugustine.com/about">About</a>
+        <button onclick="setView('map')">Map view</button>
+        <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a>
+      </div>
+      <div class="sf-col">
+        <h4>Cameras by</h4>
+        <a href="https://www.seesaintaugustine.com/" target="_blank" rel="noopener">See St. Augustine</a>
+        <a href="https://www.surf-station.com/st-augustine-hd-wave-cam/" target="_blank" rel="noopener">Surf Station</a>
+      </div>
+      <div class="sf-col">
+        <h4>Legal</h4>
+        <button onclick="openLegal('privacy')">Privacy Policy</button>
+        <button onclick="openLegal('terms')">Terms &amp; Disclaimer</button>
+        <a href="mailto:hello@watchstaugustine.com">Contact</a>
+      </div>
+    </div>
+  </div>
+  <div class="sf-base">
+    <span class="sf-credit">Built &amp; maintained by <a href="https://nestasystems.com" target="_blank" rel="noopener">Nesta Systems</a>, a small business consulting company in St. Augustine, Florida</span>
+    <span class="dot">·</span>
+    <span>© <span id="sfYear">2026</span> watchstaugustine.com</span>
+    <span class="dot">·</span>
+    <span>Not affiliated with the City of St. Augustine or the camera operators.</span>
+    <span class="dot">·</span>
+    <span>Maps © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors</span>
+    <span class="dot">·</span>
+    <span>Weather &amp; surf by <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a></span>
+    <span class="dot">·</span>
+    <span>Tides by <a href="https://tidesandcurrents.noaa.gov/" target="_blank" rel="noopener">NOAA</a></span>
+  </div>
+</footer>
+
+<div class="cookie" id="cookie" hidden>
+  <p>This page embeds live video players and basic services (maps, weather) that may set cookies. By using the site you accept this. See our <a onclick="openLegal('privacy')">Privacy Policy</a>.</p>
+  <button onclick="dismissCookie()">Got it</button>
+</div>
+
+<div class="legal" id="legal" aria-hidden="true">
+  <div class="legal-card" role="dialog" aria-modal="true" aria-labelledby="legalTitle">
+    <div class="legal-head">
+      <h3 id="legalTitle">Privacy Policy</h3>
+      <button class="legal-x" onclick="closeLegal()" aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <div class="legal-body" id="legalBody"></div>
+  </div>
+</div>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <div class="lb-card" role="dialog" aria-modal="true" aria-label="Enlarged camera">
+    <div class="lb-bar">
+      <span class="lb-chip"><span class="pulse"></span>Live</span>
+      <span class="lb-name" id="lbName">Camera</span>
+      <button class="icon-btn" id="lbSnd" aria-label="Sound on or off" title="Sound"><svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16 9l4 6M20 9l-4 6"/></svg></button>
+      <a class="icon-btn" id="lbOpen" href="#" target="_blank" rel="noopener" title="Open on YouTube"><svg viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>
+      <button class="icon-btn" id="lbClose" aria-label="Close enlarged camera" title="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <div class="lb-stage" id="lbStage"></div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div>
+      Cameras operated by <a href="https://www.seesaintaugustine.com" target="_blank" rel="noopener">See St. Augustine</a>,
+      a local family business, streamed free on
+      <a href="https://www.youtube.com/channel/UCznXKvxj3U1dEQDprXBmlQA/streams" target="_blank" rel="noopener">YouTube</a>.
+      This page only embeds their public streams.
+    </div>
+    <div class="synced">FEED · <b id="syncedAt">using last-known IDs</b></div>
+  </div>
+</footer>
+
+<script>
+/* ============================================================================
+   CONFIG
+   ========================================================================== */
+const FEED_URL = "https://raw.githubusercontent.com/nestasystems/staug-cams/main/cams.json";                 // where the self-healing feed lives
+const CHANNEL_LIVE = "https://www.youtube.com/channel/UCznXKvxj3U1dEQDprXBmlQA/streams";
+
+/* Touch devices won't autoplay video without a direct tap, so on them we use
+   tap-to-play (thumbnail + play button) instead of autoplay-on-scroll. The
+   "(pointer:coarse)" query is true on phones/tablets, false on mouse devices. */
+const NO_AUTOPLAY = !!(window.matchMedia && window.matchMedia("(pointer:coarse)").matches);
+
+/* SLOTS — cameras grouped by area, matched to live streams by title words.
+   match : ALL of these words must appear in the live stream's title
+   avoid : NONE of these may appear (disambiguates similar titles)
+   fallbackId : last-known video ID, used only until the feed loads          */
+const AREAS = [
+  { key:"historic", label:"The Historic District",
+    blurb:"The colonial core: coquina streets, shops, and the old Spanish fort.",
+    cams:[
+      { name:"St. George Street · South", note:"Pedestrian lane, Colonial Quarter", match:["george","south"], fallbackId:null },
+      { name:"Castillo de San Marcos",    note:"The 17th-c. coquina fort",           match:["fort"],            fallbackId:"FyGb2TZB344" },
+    ]},
+  { key:"bayfront", label:"Bayfront & Bridges",
+    blurb:"Matanzas Bay, the Bridge of Lions, and the downtown skyline.",
+    cams:[
+      { name:"Matanzas Bay",        note:"Wide bayfront view",  match:["matanzas"],          fallbackId:"uLJBad4vSno" },
+      { name:"Bridge of Lions",     note:"The 1927 drawbridge", match:["bridge","lions"], avoid:["matanzas"], fallbackId:null },
+      { name:"St. Augustine Skyline", note:"Rooftops & spires", match:["skyline"],           fallbackId:"ZTk5cIbXH2g" },
+      { name:"Bridge Traffic · West", note:"A1A approach",      match:["traffic"],           fallbackId:null },
+    ]},
+  { key:"coast", label:"Coast & Vilano",
+    blurb:"The lighthouse, the fishing pier, and the inlet at Vilano Beach.",
+    cams:[
+      { name:"St. Augustine Lighthouse", note:"Anastasia Island beacon", match:["lighthouse"],        fallbackId:null },
+      { name:"Vilano Pier",              note:"Beach & Atlantic surf",    match:["vilano","pier"],     fallbackId:"mYbn_umeenk" },
+      { name:"Vilano Boat Ramp",         note:"Inlet boat traffic",       match:["vilano","boat"],     fallbackId:null },
+    ]},
+  { key:"surf", label:"Surf Check \u00b7 St. Augustine Beach",
+    blurb:"Live wave cams from Surf Station: pier, beach, Vilano, and Crescent Beach to the south.",
+    cams:[
+      // Surf cams are CamStreamer wrappers (stable URLs), but each is YouTube-
+      // backed underneath. posterId is that current underlying video id, used only
+      // for a real thumbnail image; if it ever rotates, the tile falls back to a
+      // sea graphic and the live video still works via the stable embed URL.
+      { name:"Pier \u00b7 Northside",   note:"St. Johns County Pier, north", embed:"https://camstreamer.com/embed/Cwyc610HmMb53lJKweotlAb3biST7WgGWXfc8nd8", posterId:"Q6eZVkUKFxo" },
+      { name:"Pier \u00b7 Southside",   note:"St. Johns County Pier, south", embed:"https://camstreamer.com/embed/JULvJitzgQ31uxTEcBWFDxDcauow6FP93I3q8iSg", posterId:"H2q_DJc33kg" },
+      { name:"St. Aug Beach \u00b7 3rd St.", note:"3rd Street break",        embed:"https://camstreamer.com/embed/68a2c2b1d0a16ce/S-29474", posterId:"B0JYDF1L-us" },
+      // North Vilano now follows Surf Station's YouTube stream, so it turns itself
+      // on and off automatically (old CamStreamer link, if ever needed:
+      // https://camstreamer.com/embed/plP1etXzmtlk8OWdXHSySD2k5mtmXf0eSOdl5Tcx).
+      { name:"North Vilano",          note:"Vilano Beach break",            match:["north","vilano"], fallbackId:"o4BJ-eDgYrM" },
+      { name:"Crescent Beach",        note:"South shore toward Matanzas Inlet", match:["crescent"], fallbackId:null },
+    ]},
+  { key:"wild", label:"Wildlife",
+    blurb:"A 100-year-old rookery and its very old residents.",
+    cams:[
+      { name:"Alligator Farm", note:"Zoological park rookery", match:["alligator"], fallbackId:null },
+    ]},
+];
+
+/* ---------- helpers ---------- */
+const SURF_PAGE = "https://www.surf-station.com/st-augustine-hd-wave-cam/";
+const EMBEDS = {};        /* synthetic-id -> {base,link} for non-YouTube embeds (CamStreamer surf cams) */
+let   EMBED_N = 0;
+function embedSrc(id, muted){
+  if (typeof id === "string" && id.indexOf("embed:") === 0){
+    const e=EMBEDS[id], sep=e.base.indexOf("?")>=0?"&":"?";
+    return e.base + sep + "autoplay=1&mute=" + (muted?1:0);
+  }
+  return `https://www.youtube.com/embed/${id}?autoplay=1&mute=${muted?1:0}&playsinline=1&rel=0&modestbranding=1`;
+}
+function watchUrl(id){
+  if (typeof id === "string" && id.indexOf("embed:") === 0) return EMBEDS[id].link || SURF_PAGE;
+  return "https://www.youtube.com/watch?v=" + id;
+}
+function ensureEmbed(tile){
+  if (!tile.cam.embed) return false;
+  // Manually flagged offline (operator's feed is dark): show the clean
+  // "reconnecting" card instead of a black frame under a Live badge.
+  if (tile.cam.offline){
+    if (!tile.temp) setTileId(tile, null);
+    tile.openA.href = tile.cam.link || SURF_PAGE;
+    return true;
+  }
+  if (!tile._eid){ tile._eid="embed:"+(EMBED_N++); EMBEDS[tile._eid]={ base:tile.cam.embed, link:tile.cam.link||SURF_PAGE }; }
+  setTileId(tile, tile._eid);
+  return true;
+}
+const ICON = {
+  muted:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16 9l4 6M20 9l-4 6"/></svg>',
+  sound:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16 8.5a4 4 0 0 1 0 7"/><path d="M18.5 6a7 7 0 0 1 0 12"/></svg>',
+  expand:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>',
+  open:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>',
+};
+const SUN = {
+  sunrise:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4V2M5 9l-1.5-1.5M19 9l1.5-1.5M3 17h18M8 17a4 4 0 0 1 8 0M2 21h20"/></svg>',
+  day:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/></svg>',
+  dusk:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 18a4 4 0 0 0-8 0M16 18a4 4 0 0 1 4-4M12 14V4M9 7l3-3 3 3M2 22h20"/></svg>',
+  night:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A7.5 7.5 0 1 1 9.5 4a6 6 0 0 0 10.5 10.5z"/></svg>',
+};
+
+/* ============================================================================
+   BUILD THE WALL
+   ========================================================================== */
+const wall = document.getElementById("wall");
+const tiles = [];   // every camera tile, with its resolved id
+
+AREAS.forEach((area, ai) => {
+  const sec = document.createElement("section");
+  sec.className = "area";
+  sec.innerHTML = `
+    <div class="area-head">
+      <span class="idx">0${ai+1}</span><h2>${area.label}</h2>
+      <span class="blurb">${area.blurb}</span>
+    </div><div class="grid"></div>`;
+  const grid = sec.querySelector(".grid");
+
+  area.cams.forEach(cam => {
+    const card = document.createElement("article");
+    card.className = "cam";
+    card.innerHTML = `
+      <div class="stage">
+        <span class="badge off"><span class="pulse"></span><span class="bword">Connecting</span></span>
+        <div class="temp-chip" hidden></div>
+        <button class="play" aria-label="Play ${cam.name}" hidden><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+        <div class="placeholder down">
+          <p class="ph-connecting">Connecting to camera…</p>
+          <p class="down-title">Camera down</p>
+          <p class="down-msg">This feed is offline at the source. We're looking for an alternate view.</p>
+          <button class="alt-btn" type="button" hidden></button>
+        </div>
+      </div>
+      <div class="meta">
+        <div class="label"><span class="camname">${cam.name}</span><span class="note">${cam.note}</span></div>
+        <button class="icon-btn snd" title="Sound" aria-label="Sound on or off for ${cam.name}" disabled>${ICON.muted}</button>
+        <button class="icon-btn fs"  title="Enlarge" aria-label="Enlarge ${cam.name}" disabled>${ICON.expand}</button>
+        <a class="icon-btn open" href="${CHANNEL_LIVE}" target="_blank" rel="noopener" title="Open on YouTube" aria-label="Open ${cam.name} on YouTube">${ICON.open}</a>
+      </div>`;
+    const tile = {
+      cam, card, section: sec,
+      stage: card.querySelector(".stage"),
+      badge: card.querySelector(".badge.off"),
+      bword: card.querySelector(".bword"),
+      play:  card.querySelector(".play"),
+      ph:    card.querySelector(".placeholder"),
+      altBtn:card.querySelector(".alt-btn"),
+      tempChip:card.querySelector(".temp-chip"),
+      noteEl:card.querySelector(".meta .note"),
+      temp:null,
+      sndBtn:card.querySelector(".snd"),
+      fsBtn: card.querySelector(".fs"),
+      openA: card.querySelector(".open"),
+      id:null, live:false,
+    };
+    tiles.push(tile);
+    grid.appendChild(card);
+  });
+  wall.appendChild(sec);
+});
+
+/* empty-state, shown only in the rare case that every camera is offline at once
+   (also covers the brief moment before the feed first resolves) */
+const wallEmpty = document.createElement("div");
+wallEmpty.id = "wallEmpty";
+wallEmpty.style.cssText = "display:none; text-align:center; color:var(--slate); font-family:'Inter',system-ui,sans-serif; font-size:14px; letter-spacing:.04em; padding:64px 20px;";
+wallEmpty.innerHTML = "<p style='margin:0'>Connecting to the live cameras…</p>";
+wall.appendChild(wallEmpty);
+
+/* Every camera stays on the wall. Working cameras come first in each area;
+   cameras that are down move to the end of their row and show an honest
+   "Camera down" card (with a link to the nearest live view). Re-runs on every
+   feed refresh, so a camera flips back to live on its own when it returns. */
+let feedLoaded = false;
+function refreshVisibility(){
+  tiles.forEach(t => {
+    t.card.style.display = "";
+    // Only call a camera "down" once we've actually checked. Until then it says "Connecting".
+    const down = !t.id && feedLoaded;
+    t.card.style.order = down ? 2 : (t.temp ? 1 : 0);   // real cams first, then temporary views, then down
+    t.card.classList.toggle("is-down", down);
+    t.card.classList.toggle("is-connecting", !t.id && !feedLoaded);
+    if (!t.id) t.bword.textContent = feedLoaded ? "Down" : "Connecting";
+  });
+  updateDownCards();
+  // Only before the feed has answered do we show the "connecting" line.
+  wallEmpty.style.display = "none";
+  }
+tiles.forEach(t => ensureEmbed(t));   // surf cams: fixed embeds, show them immediately
+refreshVisibility();
+
+/* Poster shown behind the play button on touch devices. YouTube cams have a real
+   thumbnail; CamStreamer surf cams are YouTube-backed too, so we use their current
+   underlying video id (posterId) for a real still — and fall back to a calm-sea
+   graphic only if that id has rotated (or no id is known). */
+function seaPoster(){
+  const po=document.createElement("div"); po.className="thumb cposter"; po.setAttribute("aria-hidden","true");
+  po.innerHTML='<svg class="cposter-sea" viewBox="0 0 120 48" preserveAspectRatio="none">'
+    +'<path d="M0 20 Q15 12 30 20 T60 20 T90 20 T120 20"/>'
+    +'<path d="M0 30 Q15 22 30 30 T60 30 T90 30 T120 30"/>'
+    +'<path d="M0 40 Q15 32 30 40 T60 40 T90 40 T120 40"/></svg>';
+  return po;
+}
+function posterNode(id, name, posterId){
+  let yt = (typeof id==="string" && id.indexOf("embed:")!==0) ? id : null;
+  if (!yt && posterId) yt = posterId;
+  if (yt){
+    const im=document.createElement("img"); im.className="thumb"; im.alt=name||""; im.loading="lazy";
+    im.onerror=()=>im.replaceWith(seaPoster());   // id rotated / no thumbnail -> sea graphic
+    im.src="https://img.youtube.com/vi/"+yt+"/hqdefault.jpg";
+    return im;
+  }
+  return seaPoster();
+}
+
+/* ---------- give a tile its video id (and wire it up) ---------- */
+function setTileId(tile, id, temp){
+  const newId = id || null;
+  if (tile.live && tile.id !== newId) forceDeactivate(tile);   // stop the old video if it changed
+  tile.id = newId;
+  tile.temp = (newId && temp) ? temp : null;
+  tile.card.classList.toggle("is-temp", !!tile.temp);
+  tile.tempChip.hidden = !tile.temp;
+  tile.noteEl.textContent = tile.temp ? "Usual camera down · temporary view" : tile.cam.note;
+  if (tile.temp) tile.tempChip.textContent = "Temporary view from " + tile.temp.cam.name;
+  const old=tile.stage.querySelector(".thumb"); if(old) old.remove();
+  if (!tile.id){ // offline
+    tile.ph.hidden = false; tile.play.hidden = true;
+    tile.badge.classList.add("off"); tile.bword.textContent = "Down";
+    tile.sndBtn.disabled = tile.fsBtn.disabled = true;
+    tile.openA.href = CHANNEL_LIVE;
+    return;
+  }
+  tile.ph.hidden = true; tile.play.hidden = false;
+  tile.badge.classList.remove("off"); tile.bword.textContent = tile.temp ? "Temp view" : "Live";
+  tile.sndBtn.disabled = tile.fsBtn.disabled = false;
+  tile.openA.href = watchUrl(tile.id);
+  // touch devices: drop a thumbnail behind the play button so the wall looks
+  // alive even though playback waits for a tap.
+  if (NO_AUTOPLAY && !tile.live){
+    tile.stage.insertBefore(posterNode(tile.id, tile.cam.name, tile.cam.posterId), tile.stage.firstChild);
+  }
+}
+
+/* ---------- activate / deactivate streams ---------- */
+let allLive = false, audioTile = null;
+/* Phones run out of memory when too many video players run at once — that's the
+   black screen + reload + "a problem repeatedly occurred." On touch devices we
+   cap how many can play simultaneously and evict the oldest when a new one
+   starts. Lower MAX_LIVE if any device still struggles; raise it on roomy ones. */
+const MAX_LIVE = NO_AUTOPLAY ? 4 : Infinity;
+const liveOrder = [];                       // tiles currently playing, oldest first
+function activate(tile, muted=true){
+  if (!tile.id || tile.live) return;
+  if (MAX_LIVE !== Infinity){               // make room before starting another
+    while (liveOrder.length >= MAX_LIVE){ const old=liveOrder.shift(); if(old && old!==tile) forceDeactivate(old); }
+  }
+  const f = document.createElement("iframe");
+  f.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+  f.setAttribute("allowfullscreen","");
+  f.src = embedSrc(tile.id, muted);
+  tile.stage.appendChild(f);
+  tile.stage.classList.add("is-live");
+  tile.live = true;
+  liveOrder.push(tile);
+}
+function forceDeactivate(tile){             // tear down regardless of allLive (used by the cap)
+  if (!tile.live) return;
+  if (tile === audioTile) audioTile = null;
+  const f = tile.stage.querySelector("iframe"); if (f) f.remove();
+  tile.stage.classList.remove("is-live"); tile.live = false;
+  tile.sndBtn.classList.remove("on"); tile.sndBtn.innerHTML = ICON.muted;
+  const i = liveOrder.indexOf(tile); if (i>=0) liveOrder.splice(i,1);
+}
+function deactivate(tile){
+  // On mobile we never tear a stream down on scroll — the visitor started it on
+  // purpose and expects it to stay live. Memory stays bounded by MAX_LIVE, which
+  // already evicts the oldest stream whenever a new one starts. On desktop, keep
+  // the original scroll-based teardown (unless the whole wall is armed).
+  if (!tile.live || allLive || NO_AUTOPLAY) return;
+  forceDeactivate(tile);
+}
+function toggleSound(tile){
+  if (!tile.id) return;
+  const turningOn = tile !== audioTile;
+  if (audioTile && audioTile !== tile){
+    const af = audioTile.stage.querySelector("iframe"); if (af) af.src = embedSrc(audioTile.id, true);
+    audioTile.sndBtn.classList.remove("on"); audioTile.sndBtn.innerHTML = ICON.muted; audioTile=null;
+  }
+  if (turningOn){
+    if (!tile.live) activate(tile,false);
+    else { const f=tile.stage.querySelector("iframe"); if(f) f.src=embedSrc(tile.id,false); }
+    tile.sndBtn.classList.add("on"); tile.sndBtn.innerHTML = ICON.sound; audioTile=tile;
+  } else {
+    const f=tile.stage.querySelector("iframe"); if(f) f.src=embedSrc(tile.id,true);
+    tile.sndBtn.classList.remove("on"); tile.sndBtn.innerHTML = ICON.muted; audioTile=null;
+  }
+}
+
+/* wire tile interactions once */
+tiles.forEach(tile => {
+  tile.stage.addEventListener("click", e => { if (e.target.closest(".icon-btn")||!tile.id) return; activate(tile); });
+  tile.sndBtn.addEventListener("click", () => toggleSound(tile));
+  tile.fsBtn.addEventListener("click", () => openLightbox(tile));
+});
+
+/* lazy autoplay as tiles scroll into view */
+const io = new IntersectionObserver(es => es.forEach(e => {
+  const t = tiles.find(t => t.stage === e.target); if (!t || !t.id) return;
+  if (e.isIntersecting){ if(!NO_AUTOPLAY) activate(t); } else if (e.intersectionRatio === 0) deactivate(t);
+}), { rootMargin:"250px 0px", threshold:[0,0.01] });
+tiles.forEach(t => io.observe(t.stage));
+
+/* master: stream everything */
+const masterBtn = document.getElementById("masterPlay");
+function setMasterLabel(){
+  const n = tiles.filter(t=>t.id && !t.temp).length;
+  const on = (MAX_LIVE===Infinity) ? n : Math.min(n, MAX_LIVE);
+  masterBtn.innerHTML = allLive
+    ? '<span class="dot" style="color:#fff">●</span> '+on+(on===1?' camera live':' cameras live')
+    : '<span class="dot">●</span> Go live · '+n+(n===1?' cam':' cams');
+}
+masterBtn.addEventListener("click", () => {
+  allLive = !allLive; masterBtn.classList.toggle("armed", allLive);
+  if (allLive){
+    const live = tiles.filter(t => t.id);
+    // Desktop runs the whole wall at once; phones fill up to the safe cap
+    // (MAX_LIVE). Because mobile no longer tears a stream down on scroll (see
+    // deactivate), the ones we start here stay live as the visitor scrolls.
+    (MAX_LIVE === Infinity ? live : live.slice(0, MAX_LIVE)).forEach(t => activate(t));
+    const firstArea = document.querySelector(".area");
+    if (firstArea) firstArea.scrollIntoView({ behavior:"smooth", block:"start" });
+  } else {
+    // Second tap turns the wall back off.
+    liveOrder.slice().forEach(forceDeactivate);
+  }
+  setMasterLabel();
+});
+
+/* ============================================================================
+   SPOTLIGHT — rotates through the live cameras
+   ========================================================================== */
+const spotFrame=document.getElementById("spotFrame"), spotName=document.getElementById("spotName"),
+      spotNote=document.getElementById("spotNote"), spotDots=document.getElementById("spotDots"),
+      spotProg=document.getElementById("spotProg"), spotBox=document.getElementById("spot");
+let spotList=[], spotIdx=0, spotTimer=null, spotStart=0, spotPaused=false;
+const SPOT_MS=24000;
+
+function buildSpot(){
+  spotList = tiles.filter(t => t.id && !t.temp);
+  spotDots.innerHTML="";
+  spotList.forEach((_,i)=>{ const b=document.createElement("button"); b.addEventListener("click",()=>showSpot(i,true)); spotDots.appendChild(b); });
+  if (spotList.length && document.documentElement.getAttribute("data-view")==="wall"){ showSpot(0,false); if(!NO_AUTOPLAY) loopSpot(); }
+  else { spotName.textContent="No live view yet"; spotNote.textContent="check the channel"; }
+}
+function showSpot(i,reset){
+  if (!spotList.length) return;
+  spotIdx=(i+spotList.length)%spotList.length;
+  const t=spotList[spotIdx];
+  spotFrame.innerHTML="";
+  if (NO_AUTOPLAY){
+    // touch device: show a tappable poster (thumbnail or sea graphic + play
+    // button) — a tap is the only thing allowed to start the video on mobile.
+    spotFrame.appendChild(posterNode(t.id, t.cam.name, t.cam.posterId));
+    const pb=document.createElement("button"); pb.className="play"; pb.setAttribute("aria-label","Play "+t.cam.name);
+    pb.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>';
+    pb.addEventListener("click", spotPlay);
+    spotFrame.appendChild(pb);
+  } else {
+    const f=document.createElement("iframe");
+    f.allow="autoplay; encrypted-media; picture-in-picture; fullscreen"; f.setAttribute("allowfullscreen","");
+    f.src=embedSrc(t.id,true); spotFrame.appendChild(f);
+  }
+  spotName.textContent=t.cam.name; spotNote.textContent=t.cam.note;
+  [...spotDots.children].forEach((d,di)=>d.classList.toggle("on",di===spotIdx));
+  if (reset){ spotStart=performance.now(); }
+}
+function spotPlay(){
+  const t=spotList[spotIdx]; if(!t) return;
+  spotFrame.innerHTML="";
+  const f=document.createElement("iframe");
+  f.allow="autoplay; encrypted-media; picture-in-picture; fullscreen"; f.setAttribute("allowfullscreen","");
+  f.src=embedSrc(t.id,true); spotFrame.appendChild(f);
+  spotPaused=true;   // once the visitor starts one, stop the auto-rotation from swapping it out
+}
+function loopSpot(){
+  if (document.documentElement.getAttribute("data-view")!=="wall") return;
+  spotStart=performance.now();
+  cancelAnimationFrame(spotTimer);
+  const tick=(now)=>{
+    if (!spotPaused){
+      const p=Math.min(1,(now-spotStart)/SPOT_MS);
+      spotProg.style.width=(p*100)+"%";
+      if (p>=1){ showSpot(spotIdx+1,false); spotStart=now; }
+    } else { spotStart=now - spotProg.offsetWidth/spotBox.offsetWidth*SPOT_MS; }
+    spotTimer=requestAnimationFrame(tick);
+  };
+  spotTimer=requestAnimationFrame(tick);
+}
+spotBox.addEventListener("mouseenter",()=>spotPaused=true);
+spotBox.addEventListener("mouseleave",()=>spotPaused=false);
+
+/* ============================================================================
+   SELF-HEALING FEED — match live titles → tiles
+   ========================================================================== */
+function resolveFromFeed(live){            // live = [{videoId,title}]
+  const used=new Set();
+  tiles.forEach(tile => {
+    if (ensureEmbed(tile)) return;           // Surf Station / CamStreamer cams are fixed
+    const m=tile.cam.match.map(w=>w.toLowerCase());
+    const avoid=(tile.cam.avoid||[]).map(w=>w.toLowerCase());
+    const hit=live.find(v=>{
+      if(used.has(v.videoId)) return false;
+      const t=(v.title||"").toLowerCase();
+      return m.every(w=>t.includes(w)) && !avoid.some(w=>t.includes(w));
+    });
+    if (hit){ used.add(hit.videoId); tile.title=hit.title||""; setTileId(tile,hit.videoId); }
+    // No live stream for this camera right now. We do NOT fall back to an old
+    // saved video ID here: old IDs point at ended streams, which show a YouTube
+    // error screen and look broken (or locked). Show an honest "Camera down" card.
+    else { tile.title=""; if (!tile.temp) setTileId(tile, null); }   // keep a temporary view playing; assignTemps re-checks it
+  });
+}
+
+/* For a camera that's down, find the best other live camera to send people to:
+   1) a live stream whose title mentions this camera's view (e.g. the operator
+      merged "Lighthouse" into the Matanzas River stream), 2) a live camera in
+      the same area, 3) any live camera. */
+function findAlternate(tile, exclude){
+  const live = tiles.filter(t => t.id && !t.temp && t !== tile && !(exclude && exclude.has(t)));
+  if (!live.length) return null;
+  const words = (tile.cam.match||[]).map(w=>w.toLowerCase());
+  if (words.length){
+    const same = live.find(t => t.title && words.every(w => t.title.toLowerCase().includes(w)));
+    if (same) return same;
+  }
+  return live.find(t => t.section === tile.section) || live[0];
+}
+function isReal(t){ return !!(t.id && !t.temp); }
+/* Every camera that's down borrows a nearby live camera, clearly labeled
+   "Temporary view". Runs after each feed check, so when the real camera
+   comes back it automatically replaces the temporary one. */
+function assignTemps(){
+  // No repeats: each live camera fills at most ONE empty spot. Spots left over
+  // show the "Camera down" card instead of a copy.
+  const used = new Set();
+  const down = tiles.filter(t => !isReal(t));
+  // 1) keep temporary views that are still valid (no reshuffling on every check)
+  down.forEach(t => {
+    if (t.temp && isReal(t.temp) && t.id === t.temp.id && !used.has(t.temp)) used.add(t.temp);
+    else if (t.temp) setTileId(t, null);
+  });
+  // 2) give the remaining down spots a camera nobody else is borrowing
+  down.forEach(t => {
+    if (t.temp) return;
+    const alt = findAlternate(t, used);
+    if (alt) { used.add(alt); setTileId(t, alt.id, alt); }
+  });
+}
+function goToTile(t){
+  t.card.scrollIntoView({ behavior:"smooth", block:"center" });
+  t.card.classList.add("flash"); setTimeout(()=>t.card.classList.remove("flash"), 1800);
+  activate(t);
+}
+function updateDownCards(){
+  tiles.forEach(t => {
+    if (t.id) return;           // live or showing a temporary view
+    const alt = findAlternate(t);
+    t.altBtn.hidden = !alt;
+    if (alt){
+      t.altBtn.textContent = "Watch " + alt.cam.name + " instead";
+      t.altBtn.onclick = (e) => { e.stopPropagation(); goToTile(alt); };
+    }
+  });
+}
+function applyFallbacks(){ tiles.forEach(t=>{ if (ensureEmbed(t)) return; if (!t.cam.fallbackId && t.temp) return; setTileId(t,t.cam.fallbackId); }); }
+
+const FEED_BACKUP_URL = "https://cdn.jsdelivr.net/gh/nestasystems/staug-cams@main/cams.json"; // copy of the same list on a second server
+// Freshest copy: GitHub's API updates within about a minute of a change
+// (the plain file link above can lag up to 5 minutes behind).
+const FEED_FAST_URL = "https://api.github.com/repos/nestasystems/staug-cams/contents/cams.json?ref=main";
+async function fetchFeed(url){
+  const ctl = (typeof AbortController!=="undefined") ? new AbortController() : null;
+  const timer = ctl ? setTimeout(()=>ctl.abort(), 8000) : null;   // give up after 8 seconds
+  try{
+    const opts = { cache:"no-store" };
+    if (ctl) opts.signal = ctl.signal;
+    if (url === FEED_FAST_URL) opts.headers = { "Accept":"application/vnd.github.raw+json" };
+    const r = await fetch(url, opts);
+    if(!r.ok) throw new Error(r.status);
+    const data = await r.json();
+    if(!data || !Array.isArray(data.live)) throw new Error("bad feed");
+    return data;
+  } finally { if (timer) clearTimeout(timer); }
+}
+async function loadFeed(){
+  try{
+    let data;
+    try { data = await fetchFeed(FEED_FAST_URL); }
+    catch(e0){
+      try { data = await fetchFeed(FEED_URL); }
+      catch(e1){ data = await fetchFeed(FEED_BACKUP_URL); }
+    }
+    resolveFromFeed(data.live);
+    const when=data.updated?new Date(data.updated):null;
+    document.getElementById("syncedAt").textContent = when
+      ? "synced " + new Intl.DateTimeFormat("en-US",{timeZone:"America/New_York",hour:"2-digit",minute:"2-digit",month:"short",day:"numeric"}).format(when) + " ET"
+      : "synced";
+  }catch(err){
+    // Neither copy of the list could be reached: use the last-known live IDs
+    // baked in above, so working cameras still play. Retry soon.
+    applyFallbacks();
+    document.getElementById("syncedAt").textContent="using last-known IDs";
+    if (!loadFeed._retry){ loadFeed._retry = setTimeout(()=>{ loadFeed._retry=null; loadFeed(); }, 30000); }
+  }
+  feedLoaded = true;
+  refreshLiveUI();
+}
+function refreshLiveUI(){
+  if (feedLoaded) assignTemps();
+  const nLive = tiles.filter(isReal).length, nTemp = tiles.filter(t=>t.temp).length,
+        nDown = tiles.length - nLive - nTemp;
+  document.getElementById("liveCount").textContent = nLive;
+  const dc = document.getElementById("downCount");
+  if (dc) dc.textContent = (nTemp ? " · " + nTemp + " showing a temporary view" : "") + (nDown ? " · " + nDown + " down" : "");
+  refreshVisibility();
+  setMasterLabel();
+  buildSpot();
+  if (typeof updateMapPins === "function") updateMapPins();
+  activateVisible();
+}
+function activateVisible(){
+  if(document.documentElement.getAttribute("data-view")!=="wall") return;
+  if(NO_AUTOPLAY) return;   // touch devices: tap to play, no autoplay-on-scroll
+  const vh = window.innerHeight || document.documentElement.clientHeight;
+  tiles.forEach(t=>{
+    if(!t.id || t.live) return;
+    const r = t.stage.getBoundingClientRect();
+    if(r.top < vh + 250 && r.bottom > -250) activate(t);
+  });
+}
+/* Belt-and-suspenders: the IntersectionObserver above covers the normal case,
+   but when the page is embedded (e.g. inside GoHighLevel) the observer's root
+   can miss the real scroll container, leaving in-view tiles black. Activating
+   by on-screen geometry on scroll/resize + a slow interval guarantees any
+   visible tile with a live id starts playing, regardless of what is scrolling.
+   capture:true catches scroll events from any inner scroll container. */
+let _avQueued=false;
+function queueAV(){ if(_avQueued) return; _avQueued=true; requestAnimationFrame(()=>{ _avQueued=false; activateVisible(); }); }
+window.addEventListener("scroll", queueAV, {passive:true, capture:true});
+window.addEventListener("resize", queueAV, {passive:true});
+setInterval(activateVisible, 2000);
+
+/* ============================================================================
+   CLOCK + SUN PHASE  (St. Augustine: 29.90°N, 81.31°W, US Eastern)
+   ========================================================================== */
+const LAT=29.9012, LNG=-81.3124;
+let SUN_TIMES = null;  /* {rise:Date, set:Date} — real times from Open-Meteo */
+function fmtET(date){
+  return new Intl.DateTimeFormat("en-US",{timeZone:"America/New_York",hour:"numeric",minute:"2-digit",hour12:true}).format(date);
+}
+function updatePhase(){
+  const now=new Date(), t=now.getTime();
+  let phase="day", name="Daylight", icon=SUN.day, times="";
+  if(SUN_TIMES && SUN_TIMES.rise && SUN_TIMES.set){
+    const rise=SUN_TIMES.rise.getTime(), set=SUN_TIMES.set.getTime();
+    const DAWN=45*60000, GOLD=60*60000;
+    if(t < rise-DAWN || t >= set+GOLD){ phase="night"; name="Night"; icon=SUN.night; }
+    else if(t < rise+DAWN){ phase="dawn"; name="Dawn"; icon=SUN.sunrise; }
+    else if(t >= set-GOLD){ phase="dusk"; name="Golden hour"; icon=SUN.dusk; }
+    else { phase="day"; name="Daylight"; icon=SUN.day; }
+    times="\u2191 "+fmtET(SUN_TIMES.rise)+"  \u2193 "+fmtET(SUN_TIMES.set);
+    const chip=document.getElementById("phase");
+    if(chip) chip.title="St. Augustine \u00b7 sunrise "+fmtET(SUN_TIMES.rise)+", sunset "+fmtET(SUN_TIMES.set);
+  } else {
+    const etH=parseInt(new Intl.DateTimeFormat("en-US",{timeZone:"America/New_York",hour:"2-digit",hourCycle:"h23"}).format(now),10);
+    if(etH>=7 && etH<20){ phase="day"; name="Daylight"; icon=SUN.day; }
+    else { phase="night"; name="Night"; icon=SUN.night; }
+  }
+  document.documentElement.setAttribute("data-phase",phase);
+  document.getElementById("phaseIcon").innerHTML=icon;
+  document.getElementById("phaseName").textContent=name;
+  document.getElementById("phaseTime").textContent=times;
+}
+const clockEl=document.getElementById("clock");
+function tick(){
+  clockEl.textContent=new Intl.DateTimeFormat("en-US",{timeZone:"America/New_York",hour:"numeric",minute:"2-digit",second:"2-digit",hour12:true}).format(new Date());
+}
+tick(); setInterval(tick,1000);
+updatePhase(); setInterval(updatePhase,60000);
+
+/* ──────────────────────────────────────────────
+   CURRENT CONDITIONS  (Open-Meteo · no API key)
+   St. Augustine: 29.9012 N, 81.3124 W
+─────────────────────────────────────────────── */
+const WI = {
+  sun:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>',
+  moon:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>',
+  partly:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M9 2.5V4M3.5 8H5M5.2 4.2l1 1"/><path d="M18 20a3.5 3.5 0 0 0 .3-7 5 5 0 0 0-9.3-1.2A3.5 3.5 0 0 0 8.5 20z"/></svg>',
+  cloud:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 19a4.5 4.5 0 0 0 .5-9 6 6 0 0 0-11.6-1.5A4 4 0 0 0 6.5 19z"/></svg>',
+  rain:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 15a4.5 4.5 0 0 0 .5-9 6 6 0 0 0-11.6-1.5A4 4 0 0 0 6.5 15z"/><path d="M8 18l-1 2M12 18l-1 2M16 18l-1 2"/></svg>',
+  snow:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14a4.5 4.5 0 0 0 .5-9 6 6 0 0 0-11.6-1.5A4 4 0 0 0 6.5 14z"/><path d="M9 18.5h.01M13 20h.01M16 18h.01"/></svg>',
+  fog:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h11M4 9h16M6 13h12M8 17h9"/></svg>',
+  storm:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 13a4.5 4.5 0 0 0 .5-9 6 6 0 0 0-11.6-1.5A4 4 0 0 0 6.5 13z"/><path d="M12 12l-2 4h3l-2 4"/></svg>'
+};
+function wxLabel(code, isDay){
+  const d = isDay !== 0, C = WI;
+  if(code===0)               return {label:d?"Clear":"Clear night", icon:d?C.sun:C.moon};
+  if(code===1)               return {label:"Mostly clear",  icon:d?C.sun:C.moon};
+  if(code===2)               return {label:"Partly cloudy", icon:d?C.partly:C.cloud};
+  if(code===3)               return {label:"Overcast",      icon:C.cloud};
+  if(code===45||code===48)   return {label:"Fog",           icon:C.fog};
+  if(code>=51&&code<=57)     return {label:"Drizzle",       icon:C.rain};
+  if(code>=61&&code<=67)     return {label:"Rain",          icon:C.rain};
+  if(code>=71&&code<=77)     return {label:"Snow",          icon:C.snow};
+  if(code>=80&&code<=82)     return {label:"Showers",       icon:C.rain};
+  if(code===85||code===86)   return {label:"Snow showers",  icon:C.snow};
+  if(code>=95)               return {label:"Thunderstorm",  icon:C.storm};
+  return {label:"Cloudy", icon:C.cloud};
+}
+function wxCondition(c){
+  const C=WI, day=c.is_day!==0, code=c.weather_code;
+  const precip=(typeof c.precipitation==="number")?c.precipitation:0;
+  const cloud =(typeof c.cloud_cover==="number")?c.cloud_cover:null;
+  if(code===45||code===48) return {label:"Fog", icon:C.fog};
+  // actually precipitating right now -> name the precip
+  if(precip>0){
+    if(code>=95)                                   return {label:"Thunderstorm", icon:C.storm};
+    if((code>=71&&code<=77)||code===85||code===86) return {label:"Snow",         icon:C.snow};
+    if(code>=51&&code<=57)                         return {label:"Drizzle",      icon:C.rain};
+    return {label:"Rain", icon:C.rain};
+  }
+  // dry -> describe the actual sky (matches the cameras)
+  if(cloud!=null){
+    if(cloud<12) return {label:day?"Clear":"Clear night", icon:day?C.sun:C.moon};
+    if(cloud<50) return {label:"Partly cloudy", icon:day?C.partly:C.cloud};
+    if(cloud<85) return {label:"Mostly cloudy", icon:C.cloud};
+    return {label:"Overcast", icon:C.cloud};
+  }
+  return wxLabel(code, c.is_day);
+}
+function loadWeather(){
+  const url="https://api.open-meteo.com/v1/forecast?latitude=29.9012&longitude=-81.3124"
+    +"&current=temperature_2m,apparent_temperature,weather_code,wind_speed_10m,is_day,cloud_cover,precipitation"
+    +"&daily=sunrise,sunset&timeformat=unixtime"
+    +"&temperature_unit=fahrenheit&wind_speed_unit=mph&timezone=America%2FNew_York";
+  fetch(url).then(r=>r.ok?r.json():Promise.reject(r.status)).then(d=>{
+    const c=d&&d.current; if(!c) throw 0;
+    const t=Math.round(c.temperature_2m);
+    const {label,icon}=wxCondition(c);
+    document.getElementById("wxIcon").innerHTML=icon;
+    document.getElementById("wxTemp").textContent=t+"\u00B0";
+    document.getElementById("wxCond").textContent=label;
+    const feels=Math.round(c.apparent_temperature), wind=Math.round(c.wind_speed_10m);
+    document.getElementById("wx").title=
+      "St. Augustine \u00B7 "+t+"\u00B0F (feels "+feels+"\u00B0) \u00B7 "+label+" \u00B7 wind "+wind+" mph";
+    if(d.daily && Array.isArray(d.daily.sunrise) && Array.isArray(d.daily.sunset)){
+      SUN_TIMES = { rise:new Date(d.daily.sunrise[0]*1000), set:new Date(d.daily.sunset[0]*1000) };
+      updatePhase();
+    }
+  }).catch(()=>{
+    document.getElementById("wxCond").textContent="unavailable";
+  });
+}
+loadWeather(); setInterval(loadWeather, 10*60*1000);  // refresh every 10 min
+
+/* ──────────────────────────────────────────────
+   DAILY TIDES  (NOAA CO-OPS · no API key)
+   Station 8720587 · St. Augustine Beach, FL
+   Times come back in station-local time (ET), so all comparisons and
+   formatting are done on the raw "YYYY-MM-DD HH:MM" strings — this stays
+   correct for a visitor watching from any time zone.
+─────────────────────────────────────────────── */
+const TIDE_STATION = "8720587";
+let TIDES = [];   // [{key:"YYYY-MM-DD HH:MM", type:"H"|"L", ft:Number}] — next ~48 h
+function etNow(){ // current ET date + minute as comparable strings
+  const p=new Intl.DateTimeFormat("en-CA",{timeZone:"America/New_York",year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",hourCycle:"h23"}).formatToParts(new Date());
+  const g=t=>p.find(x=>x.type===t).value;
+  return { date:g("year")+"-"+g("month")+"-"+g("day"), key:g("year")+"-"+g("month")+"-"+g("day")+" "+g("hour")+":"+g("minute") };
+}
+function tideClock(key){ // "YYYY-MM-DD HH:MM" -> "2:14p"
+  let h=parseInt(key.slice(11,13),10); const m=key.slice(14,16), ap=h>=12?"p":"a";
+  h=h%12; if(h===0)h=12; return h+":"+m+ap;
+}
+function renderTides(){
+  const main=document.getElementById("tideMain"), sub=document.getElementById("tideSub"), box=document.getElementById("tide");
+  if(!TIDES.length){ main.textContent="--"; sub.textContent="unavailable"; return; }
+  const now=etNow();
+  const next=TIDES.filter(t=>t.key>now.key).slice(0,2);
+  if(!next.length){ main.textContent="--"; sub.textContent="updating\u2026"; return; }
+  const word=t=>(t.type==="H"?"High":"Low");
+  main.textContent=word(next[0])+" "+tideClock(next[0].key);
+  sub.textContent=next[1] ? (word(next[1])+" "+tideClock(next[1].key)) : "--";
+  const today=TIDES.filter(t=>t.key.slice(0,10)===now.date)
+    .map(t=>(t.type==="H"?"High ":"Low ")+tideClock(t.key)+" ("+t.ft.toFixed(1)+" ft)").join(" \u00B7 ");
+  box.title="St. Augustine Beach tides today \u00B7 "+(today||"see NOAA")+" \u00B7 NOAA station "+TIDE_STATION;
+}
+function loadTides(){
+  const begin=etNow().date.replace(/-/g,"");
+  const url="https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?product=predictions&interval=hilo"
+    +"&begin_date="+begin+"&range=48&station="+TIDE_STATION
+    +"&datum=MLLW&time_zone=lst_ldt&units=english&format=json";
+  fetch(url).then(r=>r.ok?r.json():Promise.reject(r.status)).then(d=>{
+    if(!d || !Array.isArray(d.predictions)) throw 0;
+    TIDES=d.predictions.map(p=>({ key:p.t, type:p.type, ft:parseFloat(p.v)||0 }));
+    renderTides();
+  }).catch(()=>{ TIDES=[]; renderTides(); });
+}
+loadTides(); setInterval(loadTides, 6*60*60*1000);   // re-pull predictions every 6 h
+setInterval(renderTides, 60*1000);                    // roll to the next tide each minute
+
+/* ──────────────────────────────────────────────
+   SURF REPORT  (Open-Meteo Marine · no API key)
+   Grid point just offshore of the St. Augustine Beach pier;
+   cell_selection=sea snaps the model to a water cell.
+─────────────────────────────────────────────── */
+function compass(deg){
+  const dirs=["N","NNE","NE","ENE","E","ESE","SE","SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"];
+  return dirs[Math.round(((deg%360)+360)%360/22.5)%16];
+}
+function loadSurf(){
+  const url="https://marine-api.open-meteo.com/v1/marine?latitude=29.8565&longitude=-81.2400"
+    +"&current=wave_height,wave_period,wave_direction&cell_selection=sea&timezone=America%2FNew_York";
+  fetch(url).then(r=>r.ok?r.json():Promise.reject(r.status)).then(d=>{
+    const c=d&&d.current; if(!c || typeof c.wave_height!=="number") throw 0;
+    const ft=c.wave_height*3.28084;
+    const ftTxt=(ft<9.75 ? (Math.round(ft*2)/2).toFixed(1).replace(/\.0$/,"") : String(Math.round(ft)))+" ft";
+    const per=Math.round(c.wave_period), dir=compass(c.wave_direction);
+    document.getElementById("surfMain").textContent=ftTxt;
+    document.getElementById("surfSub").textContent=per+"s "+dir;
+    document.getElementById("surfChip").title=
+      "St. Augustine Beach surf \u00B7 waves "+ft.toFixed(1)+" ft @ "+per+"s from "+dir+" \u00B7 Open-Meteo marine model";
+  }).catch(()=>{
+    document.getElementById("surfMain").textContent="--";
+    document.getElementById("surfSub").textContent="unavailable";
+  });
+}
+loadSurf(); setInterval(loadSurf, 30*60*1000);   // refresh every 30 min
+
+/* ---------- go ---------- */
+loadFeed();
+setInterval(loadFeed, 90*1000);   // re-check every 90 seconds so a returning camera switches back fast
+document.addEventListener("visibilitychange", () => { if (!document.hidden) loadFeed(); });  // and right away when someone comes back to the tab
+
+
+/* ============================================================================
+   INTERACTIVE TOWN MAP
+   Pin positions are % of the map canvas (x:left, y:top) — tweak freely.
+   ========================================================================== */
+const CAM_GEO = {
+  // Each pin sits at the real-world spot its camera looks at.
+  // Nudge any pin by editing its [lat, lng] (latitude first, then longitude).
+  // —— Town (See St. Augustine) ——
+  "St. George Street · South": [29.8930, -81.3137],  // Colonial Quarter, pedestrian lane
+  "Castillo de San Marcos":    [29.8979, -81.3114],  // the coquina fort (verified)
+  "Matanzas Bay":              [29.8928, -81.3098],  // downtown bayfront, Avenida Menendez
+  "Bridge of Lions":           [29.8933, -81.3072],  // mid-span of the 1927 drawbridge (verified)
+  "St. Augustine Skyline":     [29.8945, -81.3128],  // downtown rooftops & spires
+  "Bridge Traffic · West":     [29.8926, -81.3090],  // downtown approach to the bridge
+  "St. Augustine Lighthouse":  [29.8855, -81.2887],  // Anastasia Island beacon (verified)
+  "Vilano Pier":               [29.9170, -81.2900],  // Vilano Beach oceanfront
+  "Vilano Boat Ramp":          [29.9125, -81.3030],  // Tolomato River / inlet side
+  "Alligator Farm":            [29.8866, -81.2888],  // 999 Anastasia Blvd
+  // —— Surf (Surf Station, St. Augustine Beach) ——
+  "Pier · Northside":          [29.8576, -81.2648],  // St. Johns County Ocean Pier, north (verified)
+  "Pier · Southside":          [29.8568, -81.2648],  // St. Johns County Ocean Pier, south (verified)
+  "St. Aug Beach · 3rd St.":   [29.8552, -81.2645],  // 3rd Street break, by the pier
+  "North Vilano":              [29.9208, -81.2902],  // Vilano surf break, north of the inlet
+  "Crescent Beach":            [29.7693, -81.2533],  // Surf Station 2, south shore toward Matanzas Inlet
+};
+
+let consoleTile=null, consoleMuted=true;
+
+let LMAP=null, LMARKERS={}, mapFitted=false;
+function pinIcon(state){
+  return L.divIcon({ className:"", iconSize:[18,18], iconAnchor:[9,9],
+    html:'<span class="mpin'+(state==="off"?" off":(state==="active"?" active":""))+'"></span>' });
+}
+function buildMap(){
+  const el=document.getElementById("map");
+  if(!el || typeof L==="undefined") return;
+  LMAP=L.map(el,{ scrollWheelZoom:false, zoomControl:true }).setView([29.886,-81.293], 12);
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    { maxZoom:19, attribution:"© OpenStreetMap contributors" }).addTo(LMAP);
+  tiles.forEach(tile=>{
+    const geo=CAM_GEO[tile.cam.name]; if(!geo) return;
+    const m=L.marker(geo,{ icon:pinIcon("off"), title:tile.cam.name, riseOnHover:true }).addTo(LMAP);
+    m.bindTooltip(tile.cam.name,{ direction:"top", offset:[0,-8] });
+    m.on("click", ()=>openInConsole(tile));
+    LMARKERS[tile.cam.name]=m;
+  });
+  updateMapPins();
+}
+function updateMapPins(){
+  Object.keys(LMARKERS).forEach(n=>{
+    const t=tiles.find(x=>x.cam.name===n), live=!!(t&&t.id), m=LMARKERS[n];
+    // Every camera keeps its pin: live = coral, down = grey.
+    if(LMAP && !LMAP.hasLayer(m)) m.addTo(LMAP);
+    const active = consoleTile && consoleTile.cam.name===n;
+    m.setIcon(pinIcon(active ? "active" : (live ? "on" : "off")));
+    m.setTooltipContent(t ? t.cam.name + (!live ? " · down" : (t.temp ? " · temporary view from " + t.temp.cam.name : "")) : n);
+  });
+}
+function openInConsole(tile){
+  consoleTile=tile; consoleMuted=true;
+  if(typeof updateMapPins==="function") updateMapPins();
+  const frame=document.getElementById("mpFrame"),
+        nm=document.getElementById("mpName"), nt=document.getElementById("mpNote"),
+        chip=document.getElementById("mpChip"), open=document.getElementById("mpOpen"),
+        snd=document.getElementById("mpSnd"), fs=document.getElementById("mpFs");
+  nm.textContent=tile.cam.name; nt.textContent=tile.cam.note;
+  snd.classList.remove("on"); snd.innerHTML=ICON.muted;
+  if(tile.id){
+    frame.innerHTML='<span class="mp-chip" id="mpChip"><span class="pulse"></span>Live</span>';
+    const f=document.createElement("iframe");
+    f.allow="autoplay; encrypted-media; picture-in-picture; fullscreen"; f.setAttribute("allowfullscreen","");
+    f.src=embedSrc(tile.id,true); frame.appendChild(f);
+    open.href=watchUrl(tile.id);
+    snd.disabled=false; fs.disabled=false;
+  } else {
+    const alt=findAlternate(tile);
+    frame.innerHTML='<div class="mp-empty"><b>Camera down.</b> This feed is offline at the source. We\'re looking for an alternate view.'
+      + (alt ? '<br><button class="alt-btn" type="button" id="mpAlt"></button>' : '') + '</div>';
+    if(alt){ const b=document.getElementById("mpAlt"); b.textContent="Watch "+alt.cam.name+" instead"; b.onclick=()=>openInConsole(alt); }
+    open.href=CHANNEL_LIVE; snd.disabled=true; fs.disabled=true;
+  }
+}
+function setView(v){
+  document.documentElement.setAttribute("data-view", v);
+  document.querySelectorAll(".seg [data-v]").forEach(b=>b.classList.toggle("on", b.dataset.v===v));
+  if(v==="map"){
+    cancelAnimationFrame(spotTimer);
+    if(spotFrame) spotFrame.innerHTML="";          // stop hero spotlight while away
+    if(LMAP) setTimeout(function(){ LMAP.invalidateSize(); if(!mapFitted){ const pts=Object.values(CAM_GEO); if(pts.length) LMAP.fitBounds(pts,{padding:[36,36]}); mapFitted=true; } }, 80);
+    if(!consoleTile){ const first=tiles.find(t=>t.id && CAM_GEO[t.cam.name]); if(first) openInConsole(first); }
+  } else {
+    const frame=document.getElementById("mpFrame");
+    if(frame) frame.innerHTML='<span class="mp-chip" style="visibility:hidden"><span class="pulse"></span>Live</span><div class="mp-empty">Tap a pin to watch a live view.</div>';
+    consoleTile=null;
+    if(typeof updateMapPins==="function") updateMapPins();
+    buildSpot();                                    // resume hero spotlight
+  }
+  window.scrollTo({ top:0, behavior:"smooth" });
+}
+
+document.getElementById("mpSnd").addEventListener("click", ()=>{
+  if(!consoleTile || !consoleTile.id) return;
+  consoleMuted=!consoleMuted;
+  const f=document.querySelector("#mpFrame iframe"); if(f) f.src=embedSrc(consoleTile.id, consoleMuted);
+  const b=document.getElementById("mpSnd"); b.classList.toggle("on", !consoleMuted); b.innerHTML=consoleMuted?ICON.muted:ICON.sound;
+});
+document.getElementById("mpFs").addEventListener("click", ()=>{ if(consoleTile && consoleTile.id) openLightbox(consoleTile); });
+
+buildMap();
+setView("wall");
+
+/* Links from the other pages: /#privacy and /#terms open the matching pop-up. */
+(function(){
+  const h=(location.hash||"").replace("#","").toLowerCase();
+  if((h==="privacy"||h==="terms") && typeof openLegal==="function") setTimeout(()=>openLegal(h), 300);
+})();
+window.addEventListener("hashchange", ()=>{ const h=location.hash.replace("#","").toLowerCase(); if((h==="privacy"||h==="terms") && typeof openLegal==="function") openLegal(h); });
+
+/* Deep link from the recommendation pages: watchstaugustine.com/?cam=matanzas
+   scrolls to the first camera whose name contains that word and starts it. */
+(function(){
+  const want=(new URLSearchParams(location.search).get("cam")||"").toLowerCase().trim();
+  if(!want) return;
+  let tries=0;
+  const go=()=>{
+    const t=tiles.find(x=>x.cam.name.toLowerCase().includes(want));
+    if(t && t.id){ setTimeout(()=>goToTile(t), 300); return; }
+    if(++tries<30) setTimeout(go, 500);               // wait up to 15 s for the feed
+  };
+  go();
+})();
+
+
+
+/* ============================================================================
+   ENLARGE — opens a ~3/4 framed theater view (not pure fullscreen)
+   ========================================================================== */
+const lb=document.getElementById("lightbox"), lbStage=document.getElementById("lbStage"),
+      lbName=document.getElementById("lbName"), lbOpen=document.getElementById("lbOpen"),
+      lbSnd=document.getElementById("lbSnd");
+let lbTile=null, lbMuted=true;
+
+function openLightbox(tile){
+  if(!tile || !tile.id) return;
+  lbTile=tile; lbMuted=true;
+  lbName.textContent=tile.cam.name;
+  lbOpen.href=watchUrl(tile.id);
+  lbSnd.classList.remove("on"); lbSnd.innerHTML=ICON.muted;
+  lbStage.innerHTML="";
+  const f=document.createElement("iframe");
+  f.allow="autoplay; encrypted-media; picture-in-picture; fullscreen"; f.setAttribute("allowfullscreen","");
+  f.src=embedSrc(tile.id, true); lbStage.appendChild(f);
+  lb.classList.add("open"); lb.setAttribute("aria-hidden","false");
+  document.body.style.overflow="hidden";
+}
+function closeLightbox(){
+  lb.classList.remove("open"); lb.setAttribute("aria-hidden","true");
+  lbStage.innerHTML=""; lbTile=null; document.body.style.overflow="";
+}
+document.getElementById("lbClose").addEventListener("click", closeLightbox);
+lb.addEventListener("click", e=>{ if(e.target===lb) closeLightbox(); });
+document.addEventListener("keydown", e=>{ if(e.key==="Escape" && lb.classList.contains("open")) closeLightbox(); });
+lbSnd.addEventListener("click", ()=>{
+  if(!lbTile) return; lbMuted=!lbMuted;
+  const f=lbStage.querySelector("iframe"); if(f) f.src=embedSrc(lbTile.id, lbMuted);
+  lbSnd.classList.toggle("on", !lbMuted); lbSnd.innerHTML=lbMuted?ICON.muted:ICON.sound;
+});
+
+/* ──────────────────────────────────────────────
+   FOOTER · LEGAL PANELS · COOKIE NOTICE
+─────────────────────────────────────────────── */
+const LEGAL = {
+  privacy: { title:"Privacy Policy", html:`
+    <p class="legal-eff">Effective June 18, 2026</p>
+    <p>watchstaugustine.com (\u201cwe,\u201d \u201cus\u201d) is an independent website that gathers free, publicly available live cameras of St. Augustine, Florida into one place. We aim to collect as little information as possible. This policy explains what happens when you visit.</p>
+    <h4>Information you give us</h4>
+    <p>You don't need an account or any personal information to watch the cameras. If you email us, we receive your email address and your message, which we use only to reply to you.</p>
+    <h4>Third-party content &amp; cookies</h4>
+    <p>To display the cameras, map, weather, tides, and surf conditions, this page loads content from other companies. When it does, those companies may set their own cookies or receive your device's IP address:</p>
+    <ul>
+      <li><b>YouTube / Google:</b> most live cameras are embedded YouTube players. When a player loads or plays, Google may set cookies and collect data under the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>.</li>
+      <li><b>Surf-cam embeds:</b> surf cameras are embedded from their operators' hosting services.</li>
+      <li><b>OpenStreetMap:</b> supplies the map tiles and receives your IP when the map loads (<a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy" target="_blank" rel="noopener">privacy policy</a>).</li>
+      <li><b>Open-Meteo:</b> supplies current conditions and marine surf data, and receives a request from your device when they are fetched (<a href="https://open-meteo.com/en/terms" target="_blank" rel="noopener">terms</a>).</li>
+      <li><b>NOAA Tides &amp; Currents:</b> a U.S. government service that supplies tide predictions and receives a request from your device when tides are fetched.</li>
+      <li><b>Our hosting provider</b> may set cookies needed to deliver the page.</li>
+    </ul>
+    <p>We don't control how these third parties use data. Please review their policies.</p>
+    <h4>Analytics &amp; advertising</h4>
+    <p>We may use privacy-respecting analytics and, in the future, advertising. If we add advertising, ad partners (such as Google) may use cookies to serve and measure ads, potentially based on your visits to this and other sites. We will update this policy and provide any required choices before that happens.</p>
+    <h4>Managing cookies</h4>
+    <p>Cookies are small files stored by your browser. You can block or delete them in your browser settings, though some embedded players may not work fully without them.</p>
+    <h4>Your rights</h4>
+    <p>Depending on where you live (for example, California or the EU/UK), you may have rights to access or delete personal data. Because we hold little to no personal data ourselves, most such requests are best directed to the third-party services listed above. You can also contact us and we'll help where we can.</p>
+    <h4>Children</h4>
+    <p>This is a general-audience site and is not directed to children under 13. We do not knowingly collect information from children.</p>
+    <h4>Changes</h4>
+    <p>We may update this policy; the effective date above will change when we do.</p>
+    <h4>Contact</h4>
+    <p><a href="mailto:hello@watchstaugustine.com">hello@watchstaugustine.com</a></p>
+  ` },
+  terms: { title:"Terms of Use &amp; Disclaimer", html:`
+    <p class="legal-eff">Effective June 18, 2026</p>
+    <p>By using watchstaugustine.com you agree to these terms. If you don't agree, please don't use the site.</p>
+    <h4>What this site is</h4>
+    <p>We are an independent guide that gathers publicly available live cameras of St. Augustine into one convenient place. We did not create the cameras and we do not control them. The live feeds are owned and operated by third parties, including See St. Augustine and Surf Station, and remain their property.</p>
+    <h4>No affiliation</h4>
+    <p>We are not affiliated with, endorsed by, or sponsored by the City of St. Augustine, See St. Augustine, Surf Station, YouTube, or any camera operator. All names and trademarks belong to their respective owners.</p>
+    <h4>Availability \u201cas is\u201d</h4>
+    <p>The cameras are provided \u201cas is\u201d and \u201cas available.\u201d Feeds may go offline, change, or be removed at any time by their operators, and views may be delayed or inaccurate. We make no warranty that the site or any camera will be available, uninterrupted, or error-free.</p>
+    <h4>Conditions data is informational only</h4>
+    <p>Weather, tide, and surf information shown on this page comes from third-party models and predictions (Open-Meteo and NOAA). It is provided for general reference only, may be delayed or inaccurate, and must not be relied on for navigation, boating, swimming, surfing, or any safety-critical decision. Always check official sources and local conditions before entering the water.</p>
+    <h4>Third-party content</h4>
+    <p>The cameras show public places in real time. We do not control and are not responsible for what appears on a third-party feed, nor for the content, privacy practices, or availability of any linked or embedded service.</p>
+    <h4>Limitation of liability</h4>
+    <p>To the fullest extent permitted by law, watchstaugustine.com and its operator are not liable for any damages arising from your use of, or inability to use, the site or any third-party feed.</p>
+    <h4>Removal requests</h4>
+    <p>If you operate one of these cameras, or believe content should be removed, contact us at <a href="mailto:hello@watchstaugustine.com">hello@watchstaugustine.com</a> and we'll respond promptly. We embed only publicly available streams and are glad to remove any feed at its operator's request.</p>
+    <h4>Intellectual property</h4>
+    <p>The Watch St. Augustine name, page design, and original text are ours. Embedded video and map content belong to their respective owners.</p>
+    <h4>Governing law</h4>
+    <p>These terms are governed by the laws of the State of Florida, USA, without regard to its conflict-of-law rules.</p>
+    <h4>Changes</h4>
+    <p>We may update these terms; continued use of the site after a change means you accept the revised terms.</p>
+    <h4>Contact</h4>
+    <p><a href="mailto:hello@watchstaugustine.com">hello@watchstaugustine.com</a></p>
+  ` }
+};
+function openLegal(which){
+  const d=LEGAL[which]; if(!d) return;
+  document.getElementById("legalTitle").innerHTML=d.title;
+  document.getElementById("legalBody").innerHTML=d.html;
+  const m=document.getElementById("legal");
+  m.classList.add("open"); m.setAttribute("aria-hidden","false");
+  const b=m.querySelector(".legal-body"); if(b) b.scrollTop=0;
+}
+function closeLegal(){
+  const m=document.getElementById("legal");
+  m.classList.remove("open"); m.setAttribute("aria-hidden","true");
+}
+document.getElementById("legal").addEventListener("click", e=>{ if(e.target.id==="legal") closeLegal(); });
+document.addEventListener("keydown", e=>{
+  if(e.key==="Escape"){ const m=document.getElementById("legal"); if(m.classList.contains("open")) closeLegal(); }
+});
+
+function dismissCookie(){
+  const c=document.getElementById("cookie"); if(c) c.hidden=true;
+  try{ document.cookie="wsa_ck=1; max-age=31536000; path=/; SameSite=Lax"; }catch(e){}
+}
+(function initCookie(){
+  let seen=false;
+  try{ seen=/(?:^|;\s*)wsa_ck=1(?:;|$)/.test(document.cookie); }catch(e){}
+  if(!seen){ const c=document.getElementById("cookie"); if(c) c.hidden=false; }
+})();
+
+const sfYearEl=document.getElementById("sfYear");
+if(sfYearEl) sfYearEl.textContent=new Date().getFullYear();
+
+/* FAQ accordion */
+document.querySelectorAll(".faq-question").forEach(function(btn){
+  btn.addEventListener("click", function(){
+    const open = btn.getAttribute("aria-expanded")==="true";
+    btn.setAttribute("aria-expanded", open ? "false" : "true");
+    btn.classList.toggle("open", !open);
+    const ans = btn.nextElementSibling;
+    if(ans) ans.style.maxHeight = open ? null : (ans.scrollHeight + "px");
+  });
+});
+
+</script>
+</div><!-- /.pagewrap -->
+</body>
+</html>

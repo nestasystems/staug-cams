@@ -1,0 +1,116 @@
+Watch St. Augustine: page SEO (copy & paste)
+Type these into your site builder's SEO boxes for each page. They are already inside each page file too; this just keeps the builder matching the code. Social image for every page: the site logo (URL at the bottom) until the restaurant photos go in.
+
+
+
+==================== Home page ====================
+Page file: 1-home-page.html
+Address: https://watchstaugustine.com/
+
+Page title:
+St. Augustine Live Cameras | Beach, Surf & Historic Town
+
+Meta description:
+Watch every free St. Augustine, Florida live cam on one page: the historic district, Bridge of Lions, lighthouse, Vilano Beach and surf, streaming 24/7.
+
+Keywords:
+St. Augustine live cam, St. Augustine webcam, St. Augustine Beach cam, Vilano Beach cam, St. Augustine surf cam, Bridge of Lions camera, St. Augustine lighthouse cam, historic district live, Matanzas Bay, Florida live cameras, oldest city webcam, St. Johns County
+
+
+
+==================== About ====================
+Page file: 3-about.html
+Address: https://watchstaugustine.com/about/
+
+Page title:
+About Watch St. Augustine | Built by Nesta Systems
+
+Meta description:
+Watch St. Augustine is a free live-camera and local-picks guide to St. Augustine, Florida, built and maintained by Nesta Systems, a local consulting company.
+
+Keywords:
+Watch St. Augustine, about Watch St. Augustine, Nesta Systems, Nesta Systems St. Augustine, St. Augustine small business consulting, St. Augustine live cams, who runs Watch St. Augustine
+
+
+
+==================== Restaurants ====================
+Page file: 2-restaurants.html
+Address: https://watchstaugustine.com/restaurants/
+
+Page title:
+St. Augustine Restaurants We Recommend | Watch St. Augustine
+
+Meta description:
+St. Augustine restaurants a local business actually sends people to: The Ice Plant, 17 King, The Floridian, La Nouvelle. Free listings, real stories, no ads.
+
+Keywords:
+St. Augustine restaurants, best restaurants St. Augustine FL, where to eat St. Augustine, St. Augustine dining, downtown St. Augustine restaurants, St. Augustine farm to table, St. Augustine French restaurant, St. Augustine wine bar, Nesta Systems
+
+
+
+==================== The Ice Plant ====================
+Page file: 4-restaurant-ice-plant.html
+Address: https://watchstaugustine.com/restaurants/ice-plant/
+
+Page title:
+The Ice Plant | Farm-to-Table and Cocktails in St. Augustine, FL
+
+Meta description:
+The Ice Plant: farm-to-table food and craft cocktails in St. Augustine's historic 1905 ice plant, beside the St. Augustine Distillery. Hours, menu, our story.
+
+Keywords:
+The Ice Plant, The Ice Plant St. Augustine, Farm-to-table American St. Augustine, St. Augustine restaurants, where to eat St. Augustine, Riberia Street, downtown St. Augustine, St. Augustine FL dining
+
+
+
+==================== 17 King ====================
+Page file: 5-restaurant-17-king.html
+Address: https://watchstaugustine.com/restaurants/17-king/
+
+Page title:
+17 King | Wine-focused American bistro in St. Augustine, FL
+
+Meta description:
+17 King: a wine-focused American bistro at King and Aviles in downtown St. Augustine, with live music nightly. Hours, menu, the chef, and our story.
+
+Keywords:
+17 King, 17 King St. Augustine, American bistro, wine-focused St. Augustine, St. Augustine restaurants, where to eat St. Augustine, downtown St. Augustine, St. Augustine FL dining
+
+
+
+==================== The Floridian ====================
+Page file: 6-restaurant-the-floridian.html
+Address: https://watchstaugustine.com/restaurants/the-floridian/
+
+Page title:
+The Floridian | Farm-to-Table Southern in St. Augustine, FL
+
+Meta description:
+The Floridian: farm-to-table Southern cooking in a new custom-built home at 485 Old Beach Rd on Anastasia Island, St. Augustine. Hours, menu and our story.
+
+Keywords:
+The Floridian, The Floridian St. Augustine, Farm-to-table Southern St. Augustine, St. Augustine restaurants, where to eat St. Augustine, Anastasia Island, St. Augustine FL dining
+
+
+
+==================== La Nouvelle ====================
+Page file: 7-restaurant-la-nouvelle.html
+Address: https://watchstaugustine.com/restaurants/la-nouvelle/
+
+Page title:
+La Nouvelle | French Bistro in Lincolnville, St. Augustine, FL
+
+Meta description:
+La Nouvelle: a French bistro in the historic Jefferson House at 102 Bridge St in Lincolnville, St. Augustine. Dinner, weekend brunch, hours and our story.
+
+Keywords:
+La Nouvelle, La Nouvelle St. Augustine, French bistro St. Augustine, St. Augustine restaurants, where to eat St. Augustine, Lincolnville, St. Augustine FL dining
+
+
+
+==================== Social share image (all pages) ====================
+https://assets.cdn.filesafe.space/8yzojm3WV1TpigXrdMV6/media/6a3457d21c5d711b357049f3.png
+
+
+==================== Badge image ====================
+Upload badge.png to the site so it lives at: https://watchstaugustine.com/badge.png

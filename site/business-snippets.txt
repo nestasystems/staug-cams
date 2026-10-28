@@ -1,0 +1,76 @@
+HOW TO USE
+Each business below gets two free things: a badge for their website, and a live-camera link.
+The badge image must be uploaded to your site at https://watchstaugustine.com/badge.png (file: badge.png, in this folder).
+Copy the block for the business, email or text it to them, and that's it.
+
+==================== The Ice Plant ====================
+Their listing on our site:
+  https://watchstaugustine.com/restaurants/ice-plant/
+
+1) "Recommended on WatchStAugustine" badge for their website
+   (paste into any HTML block on their site; links back to their listing)
+
+<a href="https://watchstaugustine.com/restaurants/ice-plant/" target="_blank" rel="noopener" title="Recommended on WatchStAugustine"><img src="https://watchstaugustine.com/badge.png" alt="Recommended on WatchStAugustine, free live cams of St. Augustine" width="320" height="88" style="max-width:100%;height:auto"></a>
+
+2) "Is it busy downtown right now?" link for their website or Instagram bio
+   (sends their visitors to the live camera closest to them)
+
+<a href="https://watchstaugustine.com/?cam=george" target="_blank" rel="noopener">Is it busy right now? Check the St. George Street live cam</a>
+
+Plain link for Instagram bio or a text message:
+  https://watchstaugustine.com/?cam=george
+
+
+==================== 17 King ====================
+Their listing on our site:
+  https://watchstaugustine.com/restaurants/17-king/
+
+1) "Recommended on WatchStAugustine" badge for their website
+   (paste into any HTML block on their site; links back to their listing)
+
+<a href="https://watchstaugustine.com/restaurants/17-king/" target="_blank" rel="noopener" title="Recommended on WatchStAugustine"><img src="https://watchstaugustine.com/badge.png" alt="Recommended on WatchStAugustine, free live cams of St. Augustine" width="320" height="88" style="max-width:100%;height:auto"></a>
+
+2) "Is it busy downtown right now?" link for their website or Instagram bio
+   (sends their visitors to the live camera closest to them)
+
+<a href="https://watchstaugustine.com/?cam=matanzas" target="_blank" rel="noopener">Is it busy right now? Check the Matanzas Bay live cam</a>
+
+Plain link for Instagram bio or a text message:
+  https://watchstaugustine.com/?cam=matanzas
+
+
+==================== The Floridian ====================
+Their listing on our site:
+  https://watchstaugustine.com/restaurants/the-floridian/
+
+1) "Recommended on WatchStAugustine" badge for their website
+   (paste into any HTML block on their site; links back to their listing)
+
+<a href="https://watchstaugustine.com/restaurants/the-floridian/" target="_blank" rel="noopener" title="Recommended on WatchStAugustine"><img src="https://watchstaugustine.com/badge.png" alt="Recommended on WatchStAugustine, free live cams of St. Augustine" width="320" height="88" style="max-width:100%;height:auto"></a>
+
+2) "Is it busy downtown right now?" link for their website or Instagram bio
+   (sends their visitors to the live camera closest to them)
+
+<a href="https://watchstaugustine.com/?cam=pier" target="_blank" rel="noopener">Is it busy right now? Check the St. Augustine Beach Pier live cam</a>
+
+Plain link for Instagram bio or a text message:
+  https://watchstaugustine.com/?cam=pier
+
+
+==================== La Nouvelle ====================
+Their listing on our site:
+  https://watchstaugustine.com/restaurants/la-nouvelle/
+
+1) "Recommended on WatchStAugustine" badge for their website
+   (paste into any HTML block on their site; links back to their listing)
+
+<a href="https://watchstaugustine.com/restaurants/la-nouvelle/" target="_blank" rel="noopener" title="Recommended on WatchStAugustine"><img src="https://watchstaugustine.com/badge.png" alt="Recommended on WatchStAugustine, free live cams of St. Augustine" width="320" height="88" style="max-width:100%;height:auto"></a>
+
+2) "Is it busy downtown right now?" link for their website or Instagram bio
+   (sends their visitors to the live camera closest to them)
+
+<a href="https://watchstaugustine.com/?cam=matanzas" target="_blank" rel="noopener">Is it busy right now? Check the Matanzas Bay live cam</a>
+
+Plain link for Instagram bio or a text message:
+  https://watchstaugustine.com/?cam=matanzas
+
